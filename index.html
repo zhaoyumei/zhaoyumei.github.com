@@ -2,22 +2,154 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<meta name="keywords" content="web前端,web前端个人简历，前端开发">
+	<title>赵玉美个人简历</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
 <style type="text/css">
-	div{
-		width: 100px;
-		height: 100px;
-		background: red;
-		position: absolute;
+	html,body{ height:100%;}
+	/*头部导航*/
+	header{
+		width: 100%; height: 80px;
+		background:rgba(180,180,180,0.5);
+		position: fixed; top: 0;
+		z-index: 1;
+		
+	}
+	@keyframes fire{
+		0%{
+			text-shadow: 0 0 3px #fefcc9, 2px -2px 5px #FCDA13, -4px -4px 7px #FF8413, 2px -7px 10px #F56408, -4px -12px 12px #EC0606, 0 -16px 12px #F50606, 2px -18px 16px #F18484;
+		}
+		50%{
+			text-shadow: 0 0 3px #fefcc9, 2px -2px 3px #FCDA13, -4px -4px 7px #FF8413, 2px -7px 10px #F56408, -4px -8px 12px #EC0606, 0 -16px 12px #F50606, 2px -10px 20px #F18484;
+		}
+		100%{
+			text-shadow: 0 0 3px #fefcc9, 2px -2px 3px #FCDA13, -4px -4px 8px #FF8413, 2px -8px 10px #F56408, -4px -8px 8px #EC0606, 0 -16px 16px #F50606, 2px -14px 30px #F18484;
+		}
+	}
+	header h1{
+		width: 80px; height: 54px;
+		background: #000;
+		margin:10px 10px 0 50px;
+		padding-top: 6px;
+		border-radius: 50%;
+		font-size: 15px;font-weight:bold;
+		font-family:Verdana, Geneva, sans-serif;
+		color: #fff;
+		text-align: center;line-height: 54px;
+		text-shadow: 0 0 3px #fefcc9, 2px -2px 3px #FCDA13, -2px -2px 4px #FF8413, 2px -4px 5px #F56408, -2px -6px 6px #EC0606, 0 -8px 6px #F50606, 2px -9px 8px #F18484;
+		box-shadow: 0 0 10px #fff,0 0 10px #fff;
+		animation: fire .3s infinite;
+	}
+	header .resume{
+		width: 120px; height: 80px;
+		text-align: center;
+	}
+	header .resume_p1{	
+	    margin: 10px 15px 5px;
+	    padding: 5px 15px;
+	    width: 60px;
+	    text-align: center;
+	    border-bottom: 1px solid #333;
+	    font-size: 15px;
+	    font-weight: bold;
+	}
+	header .resume_p2{	
+		font-size: 15px;
+		font-weight: bold;
+	}
+	header #nav{
+		margin-right: 80px;
+	}
+	header #nav li{
+		float: left;
+		height: 80px;
+		padding: 0 30px;
+	}
+	header #nav a{
+		padding: 27px 0;
+		font-size: 20px;
+		font-weight: bold;
+		line-height: 80px;
+	}
+	header #nav a:after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	right: 50%;
+	bottom: 0;
+	height: 2px;
+	background: #1FAEFF;
+	opacity: 0;
+	-webkit-transition: .2s ease-in;
+	transition: .2s ease-in;
+	}
+	/*内容*/
+	section{
+		width: 100%;height: 100%;
+		display: block; 
+		overflow: hidden;
+	}
+	section>div{
+		width: 100%;height: 100%;
+
+	}
+	section #page1{
+		position: relative;
+	}
+	section #bg_page1{
+		width: 100%;height: 100%;
+		position: absolute; top: 0;left: 0;
+		z-index: -100;
+		background-size: cover;
+	}
+	section #bg_page1 img{
+		width: 100%;height: 100%;
 	}
 </style>
 <script type="text/javascript">
 	window.onload = function(){
-		var oDiv = document.getElementById('box')
+		var oResume = document.getElementById('resume');
+		oResume.onmouseover = function(){
+			oResume.children[0].innerHTML = 'Resume';
+			oResume.children[1].innerHTML = '前端工程师';
+		};
+		oResume.onmouseout = function(){
+			oResume.children[0].innerHTML = 'F2E';
+			oResume.children[1].innerHTML = '个人简历';
+		};
+		var oPage1 = document.getElementById('page1');
+		var oBgPage1 = document.getElementById('bg_page1');
+		
 	}
 </script>
 </head>
 <body>
-	<div class="box" id="box"></div>
+	<!-- 头部导航 -->
+	<header class="clearfix">
+		<h1 class="fl logo">赵玉美</h1>
+		<div class="fl resume" id="resume">
+			<p class="resume_p1">F2E</p>
+			<p class="resume_p2">个人简历</p>
+		</div>
+		<nav class="fr">
+			<ul id="nav" class="clearfix">
+				<li><a href="#page1">首页</a></li>
+				<li><a href="#page2">作品展示</a></li>
+				<li><a href="#page3">自我介绍</a></li>
+				<li><a href="#page4">CSS展示</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!-- 内容 -->
+	<section>
+		<div id="page1">
+			<div id="bg_page1">
+				<img src="img/bg_page1.png" title="背景图电脑">
+			</div>
+		</div>
+		<div id="page2">我的作品</div>
+		<div id="page3">自我介绍</div>
+		<div id="page4">CSS展示</div>
+	</section>
 </body>
 </html>
