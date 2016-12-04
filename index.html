@@ -6,6 +6,7 @@
 	<title>赵玉美个人简历</title>
 	<link rel="stylesheet" type="text/css" href="css/base.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/page1.css">
 <style type="text/css">
 	html,body{ height:100%; min-width: 960px;}
 	/*内容*/
@@ -20,85 +21,76 @@
 		width: 100%;height: 100%;
 
 	}
-	section #page1{
-		background: url(img/bg_page1.png) no-repeat center center;
-		background-size: 100% 100%;
-		position: relative;
-	}
-	#page1 .hire{
-		width: 30%;height: 60%;
-		position: absolute;
-		left: 35%;top: 20%;		
-	}
-	#page1 .hire p{
-		text-align: center;
-		color: #fff;
-	}
-	#page1 .hire_p1{
-		font-size:80px;
-		font-weight: bold;
-		padding:96px 0 64px;
-	}
-	#page1 .hire_p2{
-		font-size: 40px;
-		font-weight: bold;
-		background: #fb6470;
-		width: 240px;
-		margin: 0 auto;
-		border-radius: 20px;
-	}
+	
+	/*作品展示page2*/
 	#page2{
 		background: url(img/bg_page2.png) no-repeat center center;
 		background-size: 100% 100%;
 		padding-top: 80px;
+		position: relative;
 	}
+	#page2 .flower{
+		width: 640px; height: 480px;
+		padding: 10px;
+		position: absolute;
+		top: 50%;left: 50%;
+		margin-top: -250px;
+		margin-left: -340px;
+		background: -webkit-radial-gradient(rgba(0,255,200,1),rgba(0,180,255,0.9));
+		border-radius: 14px; 
+		box-shadow: 0 0 10px #fff,0 0 10px #fff;
+	}
+	#page2 .flower li{
+		width: 140px; height: 140px;
+		float: left;
+		margin:10px;
+		overflow: hidden;
+	}
+	#page2 .flower img,a{
+		width: 140px; height: 140px;
+		border-radius: 14px; 
+	}
+	#page2 .flower a{
+		position: relative;
+		display: block;
+		
+	}
+	#page2 .flower a div{
+		width: 140px; height: 140px;
+		border-radius: 16px; 
+		position: absolute;
+		top: 0;left:-150px;
+		background: url(imgflower/bgflower.png) no-repeat center center;
+		background-size: 100% 100%;
+		text-align: center;
+		line-height: 140px;
+		font-weight: bold;
+		font-size: 24px;
+		letter-spacing: 4px;
+		word-spacing: 2px;
+		-webkit-text-stroke:2px #000;
+		
+		
+	}
+	/*自我介绍page3*/
 	#page3{
 		background: url(img/bg_page3.png) no-repeat center center;
 		background-size: 100% 100%;
 		padding-top: 80px;
 	} 
+	/*css展示page4*/
 	#page4{
 		background: url(img/bg_page4.png) no-repeat center center;
 		background-size: 100% 100%;
 		padding-top: 80px;
 	}
 </style>
-<script type="text/javascript" src="js/startMove.js"></script>
 
-<!-- // 	(function(win,doc){
-// 		win.addEventListener('resize',change,false);
-// 		change();
-// 		function change(){
-// 			doc.documentElement.style.fontSize=16/320*doc.documentElement.clientWidth+'px';
-// 		}
-// 	})(window,document) -->
 
 <script type="text/javascript">
 	window.onload = function(){
-		var oResume = document.getElementById('resume');
-		oResume.onmouseover = function(){
-			oResume.children[0].innerHTML = 'Resume';
-			oResume.children[1].innerHTML = '前端工程师';
-		};
-		oResume.onmouseout = function(){
-			oResume.children[0].innerHTML = 'F2E';
-			oResume.children[1].innerHTML = '个人简历';
-		};
-		
-		var oNav = document.getElementById('nav');
-		var aApage = oNav.getElementsByTagName('a');
-		var oHover = oNav.children[0];
-		
-		for(var i=0; i<aApage.length; i++){
-			aApage[i].onmouseover = function(){
-				move(oHover,this.offsetLeft);
-				console.log(this.offsetLeft)
-			}
-			aApage[i].onmouseout = function(){
-				move(oHover,18);
-			}
-		}
-
+		header();
+		page2Follow();
 		
 	}
 </script>
@@ -113,6 +105,7 @@
 		</div>
 		<nav class="fr">
 			<div id="nav" class="clearfix">
+			<!--弹性导航-->
 				<div class="hover"></div>
 				<a href="#page1">首页</a>
 				<span></span>
@@ -132,7 +125,82 @@
 				<p class="hire_p2">Hire Me!</p>
 			</div>
 		</div>
-		<div id="page2"></div>
+		<div id="page2">
+			<ul class = "flower clearfix" id="flower">
+				<li>		
+					<a href="page2/3Ddesign.html" target="_blank">
+						<img src="imgflower/hua0.png" alt="">
+						<div>Click</div>	
+					</a>
+				</li>
+				<li>	
+					<a href="page2/photoWall.html" target="_blank">
+						<img src="imgflower/hua1.png" alt="">
+						<div>Click</div>
+					</a>
+				</li>
+				<li>
+					<a href="page2/3Ddice.html" target="_blank">
+						<img src="imgflower/hua2.png" alt="">
+						<div>Click</div>
+					</a>
+				</li>
+				<li>
+					<a href="page2/3Dphoto.html" target="_blank">
+						<img src="imgflower/hua3.png" alt="">
+						<div>Click</div>
+					</a>	
+				</li>
+				<li>
+					<a href="" target="_blank">
+						<img src="imgflower/hua4.png" alt="">
+						<div>Click</div>
+					</a>
+				</li>
+				<li>
+					<a href="" target="_blank">
+						<img src="imgflower/hua5.png" alt="">
+						<div>Click</div>
+					</a>					
+				</li>
+				<li>
+					<a href="" target="_blank">
+						<img src="imgflower/hua6.png" alt="">
+						<div>Click</div>
+					</a>
+				</li>
+				<li>
+					<a href="" target="_blank">
+						<img src="imgflower/hua7.png" alt="">
+						<div>Click</div>
+					</a>
+				</li>
+				<li>
+					<a href="" target="_blank">
+						<img src="imgflower/hua8.png" alt="">
+						<div>Click</div>
+					</a>
+				</li>
+				<li>
+					<a href="" target="_blank">
+						<img src="imgflower/hua9.png" alt="">
+						<div>Click</div>
+					</a>
+				</li>
+				<li>
+					<a href="" target="_blank">
+						<img src="imgflower/hua10.png" alt="">
+						<div>Click</div>
+					</a>	
+				</li>
+				<li>
+					<a href="" target="_blank">
+						<img src="imgflower/hua11.png" alt="">
+						<div>Click</div>
+					</a>	
+				</li>
+			</ul>
+		</div>
 		<div id="page3">
 			<ul class="myself" id="myself">
 				<li>个人信息</li>
@@ -163,4 +231,16 @@
 		<div id="page4">CSS展示</div>
 	</section>
 </body>
+<script type="text/javascript" src="js/startMove.js"></script>
+<script type="text/javascript" src="js/move.js"></script>
+<script type="text/javascript" src="js/short.js"></script>
+<script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="js/page2.js"></script>
+<!-- // 	(function(win,doc){
+// 		win.addEventListener('resize',change,false);
+// 		change();
+// 		function change(){
+// 			doc.documentElement.style.fontSize=16/320*doc.documentElement.clientWidth+'px';
+// 		}
+// 	})(window,document) -->
 </html>

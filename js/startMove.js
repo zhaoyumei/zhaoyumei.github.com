@@ -1,6 +1,6 @@
 var iSpeed = 0;
 var left = 0;
-function move(obj,iTarget){
+function startMove(obj,iTarget){
 	clearInterval(obj.timer);
 	obj.timer = setInterval(function(){
 		iSpeed+=(iTarget-obj.offsetLeft)/5;

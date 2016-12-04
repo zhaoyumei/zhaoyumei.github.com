@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	body{ text-align:center; padding-top:50px;}
+	*{ padding:0; margin:0; list-style:none;}
+	input{width:120px; height:30px; font-size: 18px; }
+	ul{ width:510px; margin:0px auto; position:relative;}
+	li{ width:150px; height:150px; float:left; margin:10px;}
+	img{ width:100%; height:100%;}
+</style>
+<script src="../js/doMove.js"></script>
+<script>
+	window.onload=function(){
+		var oBox=document.querySelector('ul');
+		var aLi=oBox.children;
+		var oBtn=document.querySelector('input');
+		var aPos=[];
+		
+		
+		oBtn.onclick=function(){
+			aPos.sort(function(){
+				return 0.5-Math.random();
+			});
+			//console.log(aPos);
+			
+			for(var i=0; i<aLi.length;i++){
+				aLi[i].index=i;
+				doMove(aLi[i],{top:aPos[i].top,left:aPos[i].left},{type:Tween.Cubic.easeIn})
+			}
+			
+		}
+		
+		
+		//[{left:100,top:100},{left:100,top:100}]
+		//布局转换
+		for(var i=0; i<aLi.length;i++){
+			aPos.push({left:aLi[i].offsetLeft,top:aLi[i].offsetTop});
+		}
+		//console.log('第一次',aPos);
+		
+		for(var i=0;i<aPos.length;i++){
+			aLi[i].style.left=aPos[i].left+'px';
+			aLi[i].style.top=aPos[i].top+'px';
+			aLi[i].style.position='absolute';
+			aLi[i].style.margin=0;
+		}
+		
+		for(var i=0; i<aLi.length;i++){
+			aLi[i].index=i;
+			aLi[i].onmousedown=function(ev){
+				var disX=ev.clientX-this.offsetLeft;
+				var disY=ev.clientY-this.offsetTop;
+				var _this=this;
+				for(var i=0; i<aLi.length;i++){
+					aLi[i].style.zIndex=0;
+				}
+				_this.style.zIndex++;
+				document.onmousemove=function(ev){
+					var x=ev.clientX-disX;	
+					var y=ev.clientY-disY;
+					_this.style.left=x+'px';
+					_this.style.top=y+'px';
+					
+					for(var i=0; i<aLi.length;i++){
+						aLi[i].style.WebkitBoxShadow='';
+					}
+					//返回出来个最近的对象
+					var oNear=findNearest(_this);
+					if(oNear){
+						oNear.style.WebkitBoxShadow='0px 0px 10px #fff,0px 0px 10px #fff';					
+					}
+					
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+					
+					var oNear=findNearest(_this);
+					var objL=aPos[_this.index].left;
+					var objT=aPos[_this.index].top;
+					if(oNear){
+						oNear.style.WebkitBoxShadow='';
+						var oNearL=aPos[oNear.index].left;
+						var oNearT=aPos[oNear.index].top;
+						doMove(_this,{left:oNearL,top:oNearT});
+						doMove(oNear,{left:objL,top:objT});
+						var temp=_this.index;
+						_this.index=oNear.index;
+						oNear.index=temp;
+					}else{
+						//没撞到
+						doMove(_this,{top:objT,left:objL});
+					}
+				}
+				return false;
+			};
+		}
+		
+		function findNearest(obj){
+			
+			var minVal=new Date().getTime();
+			var minIndex=-1;
+			
+			for(var i=0; i<aLi.length;i++){
+				if(obj==aLi[i]){continue}
+				if(colltest(obj,aLi[i])){
+					
+					var val=getDis(obj,aLi[i]);
+					
+					if(val<minVal){
+						minVal=val;
+						minIndex=i;	
+					}
+					
+				}
+			}
+			
+			if(minIndex<0){
+				return null;	
+			}else{
+				return aLi[minIndex];	
+			}
+		}
+		
+		
+		function colltest(obj1,obj2){
+			var l1=obj1.offsetLeft;
+			var r1=l1+obj1.offsetWidth;
+			var t1=obj1.offsetTop;
+			var b1=t1+obj1.offsetHeight;
+			
+			var l2=obj2.offsetLeft;
+			var r2=l2+obj2.offsetWidth;
+			var t2=obj2.offsetTop;
+			var b2=t2+obj2.offsetHeight;
+			
+			if(r1>l2 && b1>t2 && l1<r2 && t1<b2){
+				//撞上了
+				return true;
+			}else{
+				//没撞上	
+				return false;
+			}
+			
+		}
+		
+		
+		function getDis(obj1,obj2){
+			var b=obj1.offsetLeft-obj2.offsetLeft;
+			var a=obj2.offsetTop-obj1.offsetTop;
+			
+			var c=Math.sqrt(a*a+b*b);
+			return c;
+		}
+	};
+</script>
+</head>
+
+<body >
+	<input type="button" value="随机切换" />
+	<ul>
+    	<li><img src="../imgflower/hua1.png" /></li>
+        <li><img src="../imgflower/hua2.png" /></li>
+        <li><img src="../imgflower/hua3.png" /></li>
+        <li><img src="../imgflower/hua4.png" /></li>
+        <li><img src="../imgflower/hua10.png" /></li>
+        <li><img src="../imgflower/hua6.png" /></li>
+        <li><img src="../imgflower/hua7.png" /></li>
+        <li><img src="../imgflower/hua8.png" /></li>
+        <li><img src="../imgflower/hua9.png" /></li>
+    </ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

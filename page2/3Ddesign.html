@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D效果</title>
+<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+<style type="text/css">
+	#box{ 
+		width: 540px;
+		height: 300px;
+		margin: 100px auto; 
+		
+		position: relative;
+	}
+	.active{
+		transform:scale(1.2,1.3);
+	}
+	input{
+		display: block;
+		line-height: 40px;
+		width: 60px;
+
+	}
+	#btn1{
+		position: absolute;
+		top: 30px;
+		right: -20px;
+	}
+	#btn2{
+		position: absolute;
+		top: 130px;
+		right: -20px;
+	}
+	#btn3{
+		position: absolute;
+		top: 230px;
+		right: -20px;
+	}
+	.box1{
+		z-index: 11;
+		width: 480px;height: 300px;background: url(../imgview/1.png) no-repeat center center;
+		background-size: 100% 100%;
+		position: absolute;left: 0;top: 0;
+	}
+	.box1 span{
+		position: absolute;transition: 1s;transform-style: preserve-3d;
+	}
+	.box1 i{ position:absolute; top:0; left:0; width:100%; height:100%;}
+	.box1 .front{ z-index:1; transform:translateZ(1px);}
+	.box1 .back{ transform:scale(-1,1) translateZ(-1px);}
+
+	.box2{width: 480px;height: 300px;-border:1px solid #000;
+		position: absolute;left: 0;top: 0; 
+		background: url(../imgview/0.png);}
+	.box2 .page{ width: 50%; height: 100%;position: absolute;top: 0;right: 0;transform-style: preserve-3d;transform: perspective(800px) rotateY(0deg); transform-origin: left center; z-index: 1;/*box-sizing: border-box;border:1px solid #000; border-left: none;*/}
+	.box2 .page span{position: absolute;}
+	.box2 .right{width: 50%; height: 100%;position: absolute;top: 0;right: 0;background: url(../imgview/1.png) right 0; }
+	.box2 .front{width:100%;height:100%;background: url(../imgview/0.png) right 0;
+		transform: translateZ(1px);}
+	.box2 .back{width:100%;height:100%;background: url(../imgview/1.png) left 0;transform:scale(-1,1);}
+
+	.box3{ width:480px; height:300px;  position: absolute;left: 0;top: 0;}
+	.box3 span{ position:absolute; transform-style:preserve-3d; transform:perspective(800px) rotateY(0deg); transition:1s;}
+	.box3 i{ position:absolute; top:0; left:0; width:100%; height:100%;}
+	.box3 .front{ z-index:1; transform:translateZ(1px);}
+	.box3 .back{ transform:scale(-1,1) translateZ(-1px);}
+</style>
+<script type="text/javascript">
+function rnd(n,m){
+	return parseInt(Math.random()*(m-n)+n);
+};
+window.onload = function(){
+	//选项卡
+	var oBox = document.querySelector('#box');
+	var aBox = document.querySelectorAll('#box>div');
+	var aBtn = document.querySelectorAll('input');
+	for (var i = 0; i < aBtn.length; i++) {
+		aBtn[i].index = i ;
+		aBtn[i].onclick = function(){
+
+			for (var i = 0; i < aBtn.length; i++) {
+				aBtn[i].className ='';
+				aBox[i].style.display = 'none';
+			}
+			this.className = 'active';
+			aBox[this.index].style.display = 'block';
+		};
+		//爆炸效果
+		(function(index){
+			if (index==1 || index==2) return;
+			var oBox = document.querySelector('.box1');
+			var R = 4;
+			var C = 8;
+			for (var i = 0; i < R; i++) {
+				for (var j = 0; j < C; j++) {
+					var oSpan = document.createElement('span');
+					var w = oBox.offsetWidth/C;
+					var h = oBox.offsetHeight/R;
+					oSpan.style.width=w+'px';
+					oSpan.style.height=h+'px';
+					oSpan.style.top=i*h+'px';
+					oSpan.style.left=j*w+'px';	
+
+					oSpan.style.backgroundImage = 'url(../imgview/0.png)';
+					oSpan.style.backgroundPosition=-j*w+'px '+-i*h+'px';
+					oBox.appendChild(oSpan);
+				}	
+			};
+			var aSpan = oBox.children;
+			var iNow = 0;
+			var bOk = true;
+			oBox.onclick=function(){
+				if(!bOk)return;
+				bOk = false;
+				iNow++;
+				for (var i = 0; i < aSpan.length; i++) {
+					var x2 = oBox.offsetWidth/2; 
+					var y2 = oBox.offsetHeight/2;
+					var x1 = aSpan[i].offsetLeft+aSpan[i].offsetWidth/2;
+					var y1 = aSpan[i].offsetTop+aSpan[i].offsetHeight/2;
+					var a = y2-y1;
+					var b = x2-x1;
+					aSpan[i].style.transition = '1.2s cubic-bezier(0.36, 1.18, 0.54,-0.29)';
+					aSpan[i].style.opacity= '0';
+					aSpan[i].style.transform = 'perspective(800px) scale(1.5) translateX('+-b/2+'px) translateY('+-a/2+'px) translateZ(50px) rotateX('+rnd(-360,560)+'deg) rotateY('+rnd(-360,560)+'deg) rotateZ('+rnd(-360,560)+'deg)';
+				}
+			};
+			aSpan[0].addEventListener('transitionend',function(){
+				
+				console.log(iNow);
+				for (var i = 0; i < aSpan.length; i++) {
+					aSpan[i].style.opacity = '1';
+					aSpan[i].style.transition = 'none';
+
+					aSpan[i].style.transform = 'perspective(800px) scale(1) translateX(0px) translateY(0px) translateZ(0) rotateX(0deg) rotateY(0deg) rotateZ(0deg)';
+					aSpan[i].style.backgroundImage = 'url(../imgview/'+iNow%8+'.png)';
+					oBox.style.backgroundImage = 'url(../imgview/'+(iNow+1)%8+'.png)';
+				}
+				bOk = true;
+			},false);
+		})(i);	
+		//翻页效果
+		(function(index){
+			if (index==0 || index==2) return;
+			var oBox = document.querySelector('.box2');
+			var oPage = document.querySelector('.page');
+			var oRight = document.querySelector('.right');
+			var oFront = document.querySelector('.front');
+			var oBack = document.querySelector('.back');
+			var iNow = 0;
+			var bOk = false;
+			oBox.onclick = function(){
+				if (bOk) return;
+				bOk = true;
+				iNow++;
+				if (iNow==8) {
+					iNow=0;
+				}
+				oPage.style.transition='3s';
+				oPage.style.transform ='perspective(800px) rotateY(-180deg)';
+			}
+			oPage.addEventListener('transitionend',function(){
+				oPage.style.transition='none';
+				oPage.style.transform ='perspective(800px) rotateY(0deg)';
+
+				oBox.style.backgroundImage = 'url(../imgview/'+(iNow)%8+'.png)';
+				oFront.style.backgroundImage='url(../imgview/'+iNow%8+'.png)';
+				oBack.style.backgroundImage='url(../imgview/'+(iNow+1)%8+'.png)';
+				oRight.style.backgroundImage='url(../imgview/'+(iNow+1)%8+'.png)';
+				bOk = false;
+			},false)
+		})(i);
+		//分块运动
+		(function(index){
+			if (index==1 || index==0) return;
+			var oBox=document.querySelector('.box3');		
+			//布局转换
+			var R=4;
+			var C=8;
+			for(var i=0; i<R;i++){
+				for(var j=0;j<C;j++){
+					var oSpan=document.createElement('span');
+					var w=oBox.offsetWidth/C;
+					var h=oBox.offsetHeight/R;
+					oSpan.style.width=w+'px';
+					oSpan.style.height=h+'px';
+					oSpan.style.left=j*w+'px';
+					oSpan.style.top=i*h+'px';
+					
+					oSpan.innerHTML='<i class="front"></i><i class="back"></i>';
+					
+					var oFront=oSpan.children[0];
+					var oBack=oSpan.children[1];
+					
+					oFront.style.backgroundImage='url(../imgview/0.png)';
+					oFront.style.backgroundPosition=-j*w+'px '+-i*h+'px';
+					oBack.style.backgroundImage='url(../imgview/1.png)';
+					oBack.style.backgroundPosition=-j*w+'px '+-i*h+'px';
+					oBox.appendChild(oSpan);				
+					//自定义一个属性
+					oSpan.dataset.r=i;
+					oSpan.dataset.c=j;
+				}
+			}		
+			var aSpan=oBox.children;
+			var iNow=0;
+			var bReady=true;
+			oBox.onclick=function(){
+				if(!bReady)return;
+				bReady=false;
+				
+				for(var i=0;i<aSpan.length;i++){
+					
+					var n=parseInt(aSpan[i].dataset.c)+parseInt(aSpan[i].dataset.r);
+					aSpan[i].style.transition='1s '+n*200+'ms';
+					aSpan[i].style.transform='perspective(800px) rotateY(180deg)';	
+				}
+					
+			};
+
+			aSpan[aSpan.length-1].addEventListener('transitionend',function(){
+				iNow++;
+				for(var i=0;i<aSpan.length;i++){
+					aSpan[i].style.transition='none';
+					aSpan[i].style.transform='perspective(800px) rotateY(0deg)';
+					
+					aSpan[i].children[0].style.backgroundImage='url(../imgview/'+iNow%8+'.png)';
+					aSpan[i].children[1].style.backgroundImage='url(../imgview/'+(iNow+1)%8+'.png)';	
+				}
+				
+				bReady=true;
+					
+			},false);
+		})(i);
+	}
+
+};
+</script>
+</head>
+<body>
+	<div id="box">
+		<div class="box1"></div>
+		<div class="box2">
+	    	<div class="page">
+	        	<span class="front"></span>
+	            <span class="back"></span>
+	        </div>
+	        <div class="right"></div>
+	    </div>
+	    <div class="box3"></div>
+		<input type="button" value="爆炸效果" id="btn1" class="active" />
+		<input type="button" value="翻页效果" id="btn2" />
+		<input type="button" value="分块效果" id="btn3" />
+	</div>
+</body>
+</html>

@@ -25,13 +25,17 @@ header h1{
 	margin:10px 10px 0 50px;
 	padding-top: 6px;
 	border-radius: 50%;
-	font-size: 15px;font-weight:bold;
+	font-size: 16px;font-weight:bold;
 	font-family:Verdana, Geneva, sans-serif;
 	color: #fff;
 	text-align: center;line-height: 54px;
 	text-shadow: 0 0 3px #fefcc9, 2px -2px 3px #FCDA13, -2px -2px 4px #FF8413, 2px -4px 5px #F56408, -2px -6px 6px #EC0606, 0 -8px 6px #F50606, 2px -9px 8px #F18484;
 	box-shadow: 0 0 10px #fff,0 0 10px #fff;
 	animation: fire .3s infinite;
+	transition:1s;
+}
+header h1:hover{
+	transform:rotateY(360deg);
 }
 header .resume{
 	width: 120px; height: 80px;

@@ -1,0 +1,58 @@
+/*首页page1*/
+section #page1{
+	background: url(../img/bg_page1.png) no-repeat center center;
+	background-size: 100% 100%;
+	position: relative;
+}
+#page1 .hire{
+	width: 30%;height: 60%;
+	position: absolute;
+	left: 35%;top: 20%;		
+}
+#page1 .hire p{
+	text-align: center;
+	color: #fff;
+}
+#page1 .hire_p1{
+	font-size:80px;
+	font-weight: bold;
+	padding:96px 0 64px;
+}
+#page1 .hire_p2{
+	font-size: 40px;
+	font-weight: bold;
+	background: #fb6470;
+	width: 240px;
+	margin: 0 auto;
+	border-radius: 20px;
+}
+@media screen and (max-width:960px){
+	#page1 .hire_p1{
+		font-size:70px;
+		font-weight: bold;
+		padding:76px 0 50px;
+	}
+	#page1 .hire_p2{
+		font-size: 30px;
+		font-weight: bold;
+		background: #fb6470;
+		width: 220px;
+		margin: 0 auto;
+		border-radius: 20px;
+	}
+}
+@media screen and (max-height:560px){
+	#page1 .hire_p1{
+		font-size:70px;
+		font-weight: bold;
+		padding:76px 0 50px;
+	}
+	#page1 .hire_p2{
+		font-size: 30px;
+		font-weight: bold;
+		background: #fb6470;
+		width: 220px;
+		margin: 0 auto;
+		border-radius: 20px;
+	}
+}

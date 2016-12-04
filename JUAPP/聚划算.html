@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0"/>
+
+	<meta charset="UTF-8">
+	<title>聚划算手机移动页面</title>
+	<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+<style type="text/css">
+	.head{
+		width: 16rem; height: 2.5rem;
+		position: relative;
+		background: -webkit-linear-gradient(#fff,#ebebeb);
+		padding-top: 0.75rem;
+		box-sizing: border-box;
+	}
+	.head h1{
+		width: 3.7rem; height: 1rem;
+		background: url(img/logo.png) no-repeat;
+		background-size: 100%;
+		margin: 0 auto;
+	}
+	.head a{
+		position: absolute;top: 0.5rem;left: 0.5rem;
+		width: 3.175rem;height: 1.55rem;
+		background: url(img/backBtn.png) no-repeat;
+		background-size: 100%;
+		text-indent: -999em;
+	}
+	.picbox{ width:100%; overflow:hidden; display:block;}
+	.picbox .banner{ width:700%; height: 6.7rem; overflow:hidden; -webkit-transform:translate3d(-16rem,0,0);}
+	.picbox .banner li{ float:left; width:calc(100%/7);height: 6.7rem;}
+	.picbox .banner li img{ width:100%;}
+	.picbox .btn{
+		margin-top: 0.5rem;
+		display: -webkit-box;
+		-webkit-box-pack: center;
+	}
+	.picbox .btn li{
+		width: 0.25rem;height: 0.25rem;
+		margin-right: 0.25rem;
+		background-color: #ccc;
+		border-radius: 50%;
+	}
+	.picbox .btn .active{
+		background: red;
+
+	}
+	/*menu*/
+	.icon1{background: url(img/list1.png) no-repeat;}
+	.icon2{background: url(img/list2.png) no-repeat;}
+	.icon3{background: url(img/list3.png) no-repeat;}
+	.icon4{background: url(img/list4.png) no-repeat;}
+	.icon5{background: url(img/list5.png) no-repeat;}
+	.icon6{background: url(img/list6.png) no-repeat;}
+	.icon7{background: url(img/list7.png) no-repeat;}
+	.icon8{background: url(img/list8.png) no-repeat;}
+	.icon{
+		width: 2rem;height: 2rem;background-size: 100%; display:inline-block;
+		margin-bottom: 0.4rem;
+	}
+	.menu{
+		margin:0 0.4rem;
+		margin-bottom: 1rem;
+	}
+	.menu p{font-size: 0.6rem;}
+	.menu li{
+		width: 25%;
+		float: left;
+		text-align: center;
+		margin-top: 1rem;
+	}
+	section{
+		width: 16rem;
+		padding: 0 0.5rem;
+		box-sizing: border-box;
+	}
+	section .hot{
+		height: 2rem;
+		padding-top: 0.5rem;
+		box-sizing: border-box;
+		border-bottom: 4px solid #dcdcdc;
+		font-size: 0.7rem;
+		
+	}
+	.hot b{
+		height: 1rem; 
+		padding-left: 0.5rem; 
+		line-height: 1rem;
+		background: url(img/hot.png) no-repeat;
+		font-weight: bold;
+		font-size: 0.7rem;
+	}
+	.hot i{
+		height: 1rem;
+		font-weight: bold;
+		font-size: 0.7rem;
+	}
+	section ol{
+		margin-top: 0.75rem;
+	}
+	section ol li{
+		height: 3rem; width: 15rem;
+		background-color: #F4F4F4;
+		position: relative;
+		margin-top: 0.5rem;
+	}
+	ol li span{
+		display:block;
+	}
+	ol li span:nth-child(1){
+		height: 3rem; width: 1.5rem;
+		
+	}
+	ol li span:nth-child(2){
+		height: 3rem; width: 4.5rem;
+		vertical-align: top;
+	}
+	ol li span:nth-child(3){
+		height: 2.4rem; 
+		padding-top: 0.6rem;
+		padding-left: 0.5rem;
+	}
+	ol .sale{
+		font-size: 0.6rem;
+		color: #999;
+		line-height: 0.9rem;
+	}
+	ol .sale .line{
+		text-decoration: line-through;
+	}
+	ol li span:nth-child(4){
+		height: 3rem; padding: 0 0.45rem;
+		line-height: 3rem;
+		margin-right: 0.825rem;
+		font-size: 0.7rem;
+		font-weight: bold;
+		
+	}
+	ol li span:nth-child(5){
+		width: 0.325rem; height: 0.55rem;
+		background: url(img/olright.png) no-repeat;
+		background-size: 100%;
+		position: absolute;right: 0.5rem;top: 50%; margin-top: -0.275rem;
+	}
+	ol li img{
+		height:100%;
+	}
+	section h3{
+		width: 15rem; height: 2rem;
+		background: #f5f5f5;
+		text-align: center;
+		line-height: 2rem;
+		font-size: 0.7rem;
+		color: #666;
+		margin:0.5rem 0 0.75rem 0;
+		position: relative;
+	}
+	h3 i{
+		width: 0.325rem; height: 0.55rem;
+		background: url(img/olright.png) no-repeat;
+		background-size: 100%;
+		position: absolute;right: 0.5rem;top: 50%; margin-top: -0.275rem;
+	}
+	.quality div{
+		width: 3.75rem; height: 8.8rem;
+	}
+	.quality div img{
+		width: 100%;height: 100%;
+	}
+	.quality ul{
+		width: 11.25rem; height: 8.8rem;
+		border-left: 1px solid #eee;
+		box-sizing: border-box;
+		border-bottom: 1px solid #eee;
+	}
+	.quality ul li{
+		width: calc(100%/3); height: 2.2rem;
+		border-right: 1px solid #eee;
+		border-top: 1px solid #eee;
+		float: left;
+		box-sizing: border-box;
+		line-height: 2.2rem;
+
+	}
+	.quality .data-list3 a{
+		display:inline-block;
+		width: 100%; height: 100%;
+		font-size: 0.6rem; color: #999;
+		text-align: center;
+		vertical-align: top;
+	}
+	#red{
+		color: #d51942;
+	}
+	.end{
+		margin-bottom: 0.5rem;
+	}
+	.end li{
+		width: calc(100%/3);height: 4rem; float: left;
+	}
+	.end li a{
+		display: inline-block; width: 100%;height: 100%;
+	}
+	.end .bgcolor1{
+		background: url(img/endt1.png) no-repeat;
+		background-size: 100%;
+	}
+	.bgcolor1 a .apcolor1{
+		width: 0.95rem; height: 1.1rem;
+		background: url(img/end1.png) no-repeat;
+		background-size: 100%;
+		margin:0.825rem auto;
+	}
+	.bgcolor2 a .apcolor2{
+		width: 0.95rem; height: 1.05rem;
+		background: url(img/end2.png) no-repeat;
+		background-size: 100%;
+		margin:0.85rem auto;
+	}
+	.bgcolor3 a .apcolor3{
+		width: 0.95rem; height: 0.85rem;
+		background: url(img/end3.png) no-repeat;
+		background-size: 100%;
+		margin:0.925rem auto;
+	}
+	.end p{
+		font-size:0.6rem;color: #fff;
+		margin:0 auto;
+		text-align: center; 
+	}
+	.end .bgcolor2{
+		background: url(img/endt2.png) no-repeat;
+		background-size: 100%;
+	}
+	.end .bgcolor3{
+		background: url(img/endt3.png) no-repeat;
+		background-size: 100%;
+	}
+	/*nav*/
+	nav{
+		width: 14.6rem;height: 2.2rem;
+		padding: 0 0.7rem;
+		background: #f8f8f8;
+		position: relative;
+	}
+	nav a{
+		line-height: 2.2rem;
+		color: #000; font-size: 0.7rem;
+		font-weight: bold; 
+		padding-right: 1.15rem;
+
+	}
+	nav .nave{
+		position: absolute;right: 0;
+	}
+	nav .nave i{
+		display: inline-block;
+		width: 0.425rem;height: 0.45rem;
+		background: url(img/nav.png) no-repeat left top;
+		background-size: 100%;
+	}
+
+</style>
+<script type="text/javascript">
+	(function(win,doc){
+		win.addEventListener('resize',change,false);
+		change();
+		function change(){
+			doc.documentElement.style.fontSize=20/320*doc.documentElement.clientWidth+'px';
+		}
+	})(window,document)
+
+</script>
+<script>
+	document.addEventListener('DOMContentLoaded',function(){
+		var oBtn = document.querySelector('.btn');
+		var aBtn = oBtn.children;
+
+		var oUl=document.querySelector('.banner');
+		var aLi=oUl.children;
+		var iNow=1;
+		var bReady=true;
+		
+		var x=-aLi[0].offsetWidth;
+		oUl.addEventListener('touchstart',function(ev){
+			if(!bReady)return;
+			bReady=false;
+			
+			oUl.style.WebkitTransition='none';
+			var downX=ev.targetTouches[0].clientX;
+			var disX=downX-x;
+			document.addEventListener('touchmove',fnMove,false);
+			document.addEventListener('touchend',fnEnd,false);
+			function fnMove(ev){
+				x=ev.targetTouches[0].clientX-disX;
+				oUl.style.WebkitTransform='translate3d('+x+'px,0,0)';	
+			}
+			
+			function fnEnd(ev){
+				oUl.style.WebkitTransition='0.3s';
+				document.removeEventListener('touchmove',fnMove,false);
+				document.removeEventListener('touchend',fnEnd,false);			
+				var upX=ev.changedTouches[0].clientX;				
+				var cw=Math.abs(upX-downX);
+				if(cw>50){	
+					if(downX>upX){
+						iNow++;
+						for (var i = 0; i < aBtn.length; i++) {
+							aBtn[i].className = '';
+
+						}
+						if (iNow==aLi.length-1) {
+							aBtn[0].classList.add('active');
+						}else{
+							aBtn[Math.abs(iNow-1)].classList.add('active');
+						}
+						
+					}else{
+						iNow--;	
+						for (var i = 0; i < aBtn.length; i++) {
+							aBtn[i].className = '';
+						}
+						if (iNow==0) {
+							aBtn[aBtn.length-1].classList.add('active');
+							
+						}else{
+							aBtn[Math.abs(iNow-1)].classList.add('active');
+						}
+						
+					}
+					x=-iNow*aLi[0].offsetWidth;
+					console.log(iNow);
+
+					oUl.style.WebkitTransform='translate3d('+x+'px,0,0)';	
+				}else{
+					x=-iNow*aLi[0].offsetWidth;
+					oUl.style.WebkitTransform='translate3d('+x+'px,0,0)';	
+				}
+				
+			}
+			ev.preventDefault();	
+		},false);
+		oUl.addEventListener('transitionend',function(){
+			bReady=true;
+			if(iNow==aLi.length-1){
+				oUl.style.WebkitTransition='none';
+				iNow=1;
+				x=-iNow*aLi[0].offsetWidth;
+				oUl.style.WebkitTransform='translate3d('+x+'px,0,0)';	
+			}
+			
+			if(iNow==0){
+				oUl.style.WebkitTransition='none';
+				iNow=aLi.length-2;
+				x=-iNow*aLi[0].offsetWidth;
+				oUl.style.WebkitTransform='translate3d('+x+'px,0,0)';	
+			}
+			
+		},false);
+		
+	},false);
+</script>
+</head>
+<body>
+	<header class="head">
+		<a href="#">返回</a>
+		<h1></h1>
+	</header>
+	<div class="picbox">
+		<ul class="banner clearfix">
+        	<li><img src="img/4.jpg" /></li>
+        	<li><img src="img/0.png" /></li>       
+            <li><img src="img/1.jpg" /></li>
+            <li><img src="img/2.jpg" /></li>
+            <li><img src="img/3.jpg" /></li>
+        	<li><img src="img/4.jpg" /></li>
+            <li><img src="img/0.png" /></li>
+        </ul>
+		<ul class="btn">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- menu -->
+	<ul class="menu clearfix">
+		<li>
+			<a href="#" class="icon icon1"></a>
+			<p><a href="#">商品</a></p>
+		</li>
+		<li>
+			<a href="#" class="icon icon2"></a>
+			<p><a href="#">生活</a></p>
+		</li>
+		<li>
+			<a href="#" class="icon icon3"></a>
+			<p><a href="#">品牌</a></p>
+		</li>
+		<li>
+			<a href="#" class="icon icon4"></a>
+			<p><a href="#">商品</a></p>
+		</li>
+		<li>
+			<a href="#" class="icon icon5"></a>
+			<p><a href="#">商品</a></p>
+		</li>
+		<li>
+			<a href="#" class="icon icon6"></a>
+			<p><a href="#">商品</a></p>
+		</li>
+		<li>
+			<a href="#" class="icon icon7"></a>
+			<p><a href="#">商品</a></p>
+		</li>
+		<li>
+			<a href="#" class="icon icon8"></a>
+			<p><a href="#">商品</a></p>
+		</li>
+	</ul>
+	<section>
+		<div class="hot clearfix"><b class="fl">聚划算热卖排行</b><i class="fr">TOP10</i></div>
+		<ol>
+			<li class="clearfix">
+				<span class="fl"><img src="img/number1.png"></span>
+				<span class="fl"><img src="img/olli1.png"/></span>
+				<span class="fl">
+					<p class="sale">已售23456</p>
+					<p class="sale"><b id="red">2.3</b>折 &yen <b class="line">234</b></p>
+				</span>
+				<span id="red" class="fr">&yen 51</span>
+				<span></span>
+			</li>
+			<li class="clearfix">
+				<span class="fl"><img src="img/number2.png"></span>
+				<span class="fl"><img src="img/olli2.png"/></span>
+				<span class="fl">
+					<p class="sale">已售23456</p>
+					<p class="sale"><b id="red">2.3</b>折 &yen <b class="line">234</b></p>
+				</span>
+				<span id="red" class="fr">&yen 98</span>
+				<span></span>
+			</li>
+			<li class="clearfix">
+				<span class="fl"><img src="img/number3.png"></span>
+				<span class="fl"><img src="img/olli3.png"/></span>
+				<span class="fl">
+					<p class="sale">已售23456</p>
+					<p class="sale"><b id="red">2.3</b>折 &yen <b class="line">234</b></p>
+				</span>
+				<span id="red" class="fr">&yen 188</span>
+				<span></span>
+			</li>
+			<li class="clearfix">
+				<span class="fl"><img src="img/number4.png"></span>
+				<span class="fl"><img src="img/olli4.png"/></span>
+				<span class="fl">
+					<p class="sale">已售23456</p>
+					<p class="sale"><b id="red">2.3</b>折 &yen <b class="line">234</b></p>
+				</span>
+				<span id="red" class="fr">&yen 88</span>
+				<span></span>
+			</li>
+			<li class="clearfix">
+				<span class="fl"><img src="img/number5.png"></span>
+				<span class="fl"><img src="img/olli5.png"/></span>
+				<span class="fl">
+					<p class="sale">已售23456</p>
+					<p class="sale"><b id="red">2.3</b>折 &yen <b class="line">234</b></p>
+				</span>
+				<span id="red" class="fr">&yen 199</span>
+				<span></span>
+			</li>
+			<li class="clearfix">
+				<span class="fl"><img src="img/number6.png"></span>
+				<span class="fl"><img src="img/olli6.png"/></span>
+				<span class="fl">
+					<p class="sale">已售23456</p>
+					<p class="sale"><b id="red">2.3</b>折 &yen <b class="line">234</b></p>
+				</span>
+				<span id="red" class="fr">&yen 599</span>
+				<span></span>
+			</li>
+			<li class="clearfix">
+				<span class="fl"><img src="img/number7.png"></span>
+				<span class="fl"><img src="img/olli7.png"/></span>
+				<span class="fl">
+					<p class="sale">已售23456</p>
+					<p class="sale"><b id="red">2.3</b>折 &yen <b class="line">234</b></p>
+				</span>
+				<span id="red" class="fr">&yen 4599</span>
+				<span></span>
+			</li>
+			<li class="clearfix">
+				<span class="fl"><img src="img/number8.png"></span>
+				<span class="fl"><img src="img/olli8.png"/></span>
+				<span class="fl">
+					<p class="sale">已售23456</p>
+					<p class="sale"><b id="red">2.3</b>折 &yen <b class="line">234</b></p>
+				</span>
+				<span id="red" class="fr">&yen 78</span>
+				<span></span>
+			</li>
+			<li class="clearfix">
+				<span class="fl"><img src="img/number9.png"></span>
+				<span class="fl"><img src="img/olli9.png"/></span>
+				<span class="fl">
+					<p class="sale">已售23456</p>
+					<p class="sale"><b id="red">2.3</b>折 &yen <b class="line">234</b></p>
+				</span>
+				<span id="red" class="fr">&yen 129</span>
+				<span></span>
+			</li>
+			<li class="clearfix">
+				<span class="fl"><img src="img/number10.png"></span>
+				<span class="fl"><img src="img/olli10.png"/></span>
+				<span class="fl">
+					<p class="sale">已售43456</p>
+					<p class="sale"><b id="red">2.8</b>折 &yen <b class="line">299</b></p>
+				</span>
+				<span id="red" class="fr">&yen 9</span>
+				<span></span>
+			</li>
+		</ol>
+		<h3>更多划算 逛起来！<i></i></h3>
+		<div class="quality clearfix">
+			<div class="fl">
+				<img src="img/shangpin.png"/>
+			</div>
+			<ul class="data-list3 fl">
+				<li><a href="#" id="red">服饰</a></li>
+				<li><a href="#">配饰</a></li>
+				<li><a href="#">美妆</a></li>
+				<li><a href="#">电影</a></li>
+				<li><a href="#">食品</a></li>
+				<li><a href="#" id="red">家具</a></li>
+				<li><a href="#">运动</a></li>
+				<li><a href="#" id="red">电器</a></li>
+				<li><a href="#">百货</a></li>
+				<li><a href="#">母婴</a></li>
+				<li><a href="#">数码</a></li>
+				<li><a href="#">更多</a></li>
+			</ul>
+		</div>
+		<h3>精彩商品 逛起来！<i></i></h3>
+		<div class="quality clearfix">
+			<div class="fl">
+				<img src="img/quality.png"/>
+			</div>
+			<ul class="data-list3 fl">
+				<li><a href="#" id="red">美食</a></li>
+				<li><a href="#">教育</a></li>
+				<li><a href="#">酒店</a></li>
+				<li><a href="#">电影</a></li>
+				<li><a href="#">生活服务</a></li>
+				<li><a href="#" id="red">卡券</a></li>
+				<li><a href="#">摄影</a></li>
+				<li><a href="#" id="red">粮油生鲜</a></li>
+				<li><a href="#">门票</a></li>
+				<li><a href="#">休闲娱乐</a></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<h3>品质生活 逛起来！<i></i></h3>
+		<div class="quality clearfix">
+			<div class="fl">
+				<img src="img/pinpai.png"/>
+			</div>
+			<ul class="data-list3 fl">
+				<li><a href="#">七匹狼</a></li>
+				<li><a href="#" id="red">粉红女郎</a></li>
+				<li><a href="#">卓诗尼</a></li>
+				<li><a href="#">收纳博士</a></li>
+				<li><a href="#">惠氏</a></li>
+				<li><a href="#">夏乐</a></li>
+				<li><a href="#" id="red">帕克伦</a></li>
+				<li><a href="#" >古今</a></li>
+				<li><a href="#" id="red">九牧</a></li>
+				<li><a href="#">诺奥</a></li>
+				<li><a href="#">红豆</a></li>
+				<li><a href="#">曼秀雷敦</a></li>
+			</ul>
+		</div>
+		<h3>品牌折扣 逛起来！<i></i></h3>
+		<ul class="end clearfix">
+			<li class="bgcolor1">
+				<a href="#">
+					<p class="apcolor1"></p>
+					<p>ios客户端</p>
+				</a>
+			</li>
+			<li class="bgcolor2">
+				<a href="#">
+					<p class="apcolor2"></p>
+					<p>安卓客户端</p>
+				</a>
+			</li>
+			<li class="bgcolor3">
+				<a href="#">
+					<p class="apcolor3"></p>
+					<p>意见反馈</p>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- nav -->
+	<nav>
+		<a href="#">登录</a>
+		<a href="#">注册</a>
+		<a href="#" class="nave">TOP
+			<i></i>
+		</a>
+	</nav>
+</body>
+</html>

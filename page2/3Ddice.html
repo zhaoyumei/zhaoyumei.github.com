@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>dice</title>
+	<title>dice骰子</title>
+	<link rel="stylesheet" type="text/css" href="../css/base.css"/>
 <style type="text/css">
 	#dice{
-		width: 108px;height: 108px; 
-		margin: 100px auto;position: relative;
+		width: 200px;height: 200px; 
+		margin: 180px auto;position: relative;
 		transform-style: preserve-3d;
 		transform:perspective(800px) rotateX(30deg) rotateY(30deg);
 		-transition: 2s;
@@ -14,30 +15,37 @@
 	#dice span{
 		width: 100%;height: 100%;
 		position: absolute;left: 0;top: 0;
+		
 	}
 	#dice .front{
-		background: url(img/dice01.png) no-repeat center center;
-		transform:translateZ(54px);
+		background: url(../img/dice01.png) no-repeat center center;
+		background-size: 100% 100%;
+		transform:translateZ(100px);
 	}
 	#dice .back{
-		background: url(img/dice06.png) no-repeat center center;
-		transform:translateZ(-54px);
+		background: url(../img/dice06.png) no-repeat center center;
+		background-size: 100% 100%;
+		transform:translateZ(-100px);
 	}
 	#dice .right{
-		background: url(img/dice04.png) no-repeat center center;
-		transform:translateX(54px) rotateY(-90deg) ;
+		background: url(../img/dice04.png) no-repeat center center;
+		background-size: 100% 100%;
+		transform:translateX(100px) rotateY(-90deg) ;
 	}
 	#dice .left{
-		background: url(img/dice02.png) no-repeat center center;
-		transform:translateX(-54px) rotateY(-90deg) ;
+		background: url(../img/dice02.png) no-repeat center center;
+		background-size: 100% 100%;
+		transform:translateX(-100px) rotateY(-90deg) ;
 	}
 	#dice .top{
-		background: url(img/dice03.png) no-repeat center center;
-		transform:translateY(-54px) rotateX(-90deg);
+		background: url(../img/dice03.png) no-repeat center center;
+		background-size: 100% 100%;
+		transform:translateY(-100px) rotateX(-90deg);
 	}
 	#dice .bottom{
-		background: url(img/dice05.png) no-repeat center center;
-		transform:translateY(54px) rotateX(-90deg);
+		background: url(../img/dice05.png) no-repeat center center;
+		background-size: 100% 100%;
+		transform:translateY(100px) rotateX(-90deg);
 	}
 </style>
 <script type="text/javascript">
@@ -45,8 +53,6 @@
 		var oDice = document.getElementById('dice');
 		var json = {x:90,y:90};
 		document.onmousedown=function(ev){
-			console.log(json)
-
 			var oldX = json.x;
 			var oldY = json.y;
 			var downX=ev.clientX;
@@ -54,12 +60,10 @@
 			document.onmousemove=function(ev){
 				json.x=ev.clientX-downX+oldX;	
 				json.y=downY-ev.clientY+oldY;
-
+				
 				oDice.style.transform='perspective(800px) rotateX('+json.y/3+'deg) rotateY('+json.x/3+'deg)';
 			};
 			document.onmouseup=function(){
-				console.log(json)
-
 				document.onmousemove=null;
 				document.onmouseup=null;	
 			};
@@ -69,7 +73,7 @@
 			//ev.keyCode 37-40
 			clearInterval(oDice.timer)
 			oDice.timer = setInterval(function(){
-			console.log(json)					
+			//console.log(json)					
 
 			if(tL){
 				json.x-=10;
@@ -84,7 +88,7 @@
 				json.y-=10;
 			}
 			oDice.style.transform='perspective(800px) rotateY('+json.x/3+'deg) rotateX('+json.y/3+'deg)';
-			console.log(json)					
+			//console.log(json)					
 		},30);
 			switch(ev.keyCode){
 				case 37:
