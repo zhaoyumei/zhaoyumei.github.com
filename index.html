@@ -26,7 +26,7 @@
 	#page2{
 		background: url(img/bg_page2.png) no-repeat center center;
 		background-size: 100% 100%;
-		padding-top: 80px;
+		
 		position: relative;
 	}
 	#page2 .flower{
@@ -34,8 +34,8 @@
 		padding: 10px;
 		position: absolute;
 		top: 50%;left: 50%;
-		margin-top: -250px;
-		margin-left: -340px;
+		margin-top: -220px;
+		margin-left: -320px;
 		background: -webkit-radial-gradient(rgba(0,255,200,1),rgba(0,180,255,0.9));
 		border-radius: 14px; 
 		box-shadow: 0 0 10px #fff,0 0 10px #fff;
@@ -75,9 +75,51 @@
 	/*自我介绍page3*/
 	#page3{
 		background: url(img/bg_page3.png) no-repeat center center;
-		background-size: 100% 100%;
-		padding-top: 80px;
+		background-size: 100% 100%;		
+		position: relative;
 	} 
+	#page3 .box_message{
+		margin-left: -250px;
+		margin-top:-150px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 500px;
+		height: 300px;
+		overflow: hidden;
+	}
+	#page3 #myself{
+		width: 100%;
+		
+        position: absolute;
+        bottom:0px;
+        left: 0px;
+        text-align: center;
+    }
+	#page3 #myself li{
+		width:64px;
+		height: 64px;
+		margin:12px;
+		display: inline-block;
+		font-size: 14px;
+		color: #fff;
+	}
+	#page3 #myself li img{
+		width:100%;
+		height: 100%;
+		border-radius: 30px;
+	}
+	#mymessage{
+		position: absolute;
+		left: 0;top: 0;
+		width: 400px;
+		height: 300px;
+	} 
+	#mymessage li{
+		width: 400px;
+		height: 300px;
+		color: #fff;
+	}
 	/*css展示page4*/
 	#page4{
 		background: url(img/bg_page4.png) no-repeat center center;
@@ -86,13 +128,44 @@
 	}
 </style>
 
-
+<script type="text/javascript" src="js/domready.js"></script>
 <script type="text/javascript">
-	window.onload = function(){
+	domready(function(){
 		header();
 		page2Follow();
+
+       		var oPage3 = document.getElementById('page3');
+            var oMyself = document.getElementById('myself');
+            var aLi = oMyself.getElementsByTagName('li');
+            var oMymessage = document.getElementById('mymessage');
+            var aLi2 = oMymessage.children;
+     		
+            oPage3.onmousemove=function(ev){
+            	
+                var oEvent = ev ||event;
+                for(var i=0;i<aLi.length;i++){
+                	aLi[i].index = i;
+                    var a = aLi[i].offsetWidth/2+aLi[i].offsetLeft-oEvent.clientX;
+                    var b = aLi[i].offsetHeight/2+oPage3.offsetHeight-100-oEvent.clientY;
+                    var c = Math.sqrt(a*a+b*b);
+                    var scale = 1-c/500;
+                    scale<0.5 && (scale=0.5);
+                    aLi[i].style.width=scale*128+'px';
+                    aLi[i].style.height=scale*128+'px';
+                    aLi[i].onclick = function(){
+                    	for (var i = 0; i < aLi.length; i++) {
+                    		//aLi2[i].style.display = 'none';
+                    	}
+                    	//aLi2[this.index].style.display = 'block';
+                    	move(oMymessage,{top:-this.index*aLi2[0].offsetHeight});
+                    };
+                }
+
+            };
+        
 		
-	}
+
+	});
 </script>
 </head>
 <body>
@@ -202,35 +275,45 @@
 			</ul>
 		</div>
 		<div id="page3">
-			<ul class="myself" id="myself">
-				<li>个人信息</li>
-				<li>个人技能</li>
-				<li>教育经历</li>
-				<li>个人评价</li>
-				<li>项目经验</li>
+			<ul class="myself clearfix" id="myself">
+				<li><img src="img/p3education.png" alt=""/>教育经历</li>
+				<li><img src="img/p3myskill.png" alt=""/>个人技能</li>
+				<li><img src="img/p3aboutme.png" alt=""/>个人信息</li>
+				<li><img src="img/p3evaluate.png" alt=""/>个人评价</li>
+				<li><img src="img/p3experience.png" alt=""/>项目经验</li>
 			</ul>
-			<ol class="mymessage" id="mymessage">
-				<li class="aboutme">
-					<h4>姓名：赵玉美</h4>
-					<span>民族：汉族</span><br />
-					<span>居住地：北京昌平</span><br />
-					<span>政治面貌：团员</span><br />
-					<span>毕业学校：泰山学院</span><br />
-					<span>学历：本科</span><br />
-					<span>专业：应用心理学</span><br />
-					<span>联系电话：18753855330</span><br />
-					<span>电子邮箱：zym5330@126.com</span>
-				</li>
-				<li class="myskill">技能</li>
-				<li class="education">教育经历</li>
-				<li class="evaluate">个人评价</li>
-				<li class="experience">项目经验</li>
-			</ol>
+
+			<div class="box_message">
+				<ol class="mymessage" id="mymessage">
+					<li class="aboutme">
+						<h4>姓名：赵玉美</h4>
+						<span>民族：汉族</span><br />
+						<span>居住地：北京昌平</span><br />
+						<span>政治面貌：团员</span><br />
+						<span>毕业学校：泰山学院</span><br />
+						<span>学历：本科</span><br />
+						<span>专业：应用心理学</span><br />
+						<span>联系电话：18753855330</span><br />
+						<span>电子邮箱：zym5330@126.com</span>
+					</li>
+					<li class="myskill">
+						<span>学历：本科</span><br />
+						<span>专业：应用心理学</span><br />
+						<span>联系电话：18753855330</span><br />
+						<span>电子邮箱：zym5330@126.com</span>
+					</li>
+					<li class="education">教育经历</li>
+					<li class="evaluate">个人评价</li>
+					<li class="experience">项目经验</li>
+				</ol>
+			</div>
 		</div>
 		//  作品展示  
 		<div id="page4">CSS展示</div>
 	</section>
 </body>
+
+<script type="text/javascript" src="js/html5shiv.min.js"></script>
 <script type="text/javascript" src="js/startMove.js"></script>
 <script type="text/javascript" src="js/move.js"></script>
 <script type="text/javascript" src="js/short.js"></script>

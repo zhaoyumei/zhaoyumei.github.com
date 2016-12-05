@@ -16,7 +16,7 @@ function header(){
 	for(var i=0; i<aApage.length; i++){
 		aApage[i].onmouseover = function(){
 			startMove(oHover,this.offsetLeft);
-			//console.log(this.offsetLeft)
+			
 		}
 		aApage[i].onmouseout = function(){
 			startMove(oHover,18);
