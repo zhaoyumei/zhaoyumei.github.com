@@ -7,6 +7,10 @@
 	<link rel="stylesheet" type="text/css" href="css/base.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/page1.css">
+	<link rel="stylesheet" type="text/css" href="css/page2.css">
+	<link rel="stylesheet" type="text/css" href="css/page3.css">
+	<link rel="stylesheet" type="text/css" href="css/page4.css">
+
 <style type="text/css">
 	html,body{ height:100%; min-width: 960px;}
 	/*内容*/
@@ -20,114 +24,9 @@
 	section>div{
 		width: 100%;height: 100%;
 
-	}
-	
-	/*作品展示page2*/
-	#page2{
-		background: url(img/bg_page2.png) no-repeat center center;
-		background-size: 100% 100%;
-		
-		position: relative;
-	}
-	#page2 .flower{
-		width: 640px; height: 480px;
-		padding: 10px;
-		position: absolute;
-		top: 50%;left: 50%;
-		margin-top: -220px;
-		margin-left: -320px;
-		background: -webkit-radial-gradient(rgba(0,255,200,1),rgba(0,180,255,0.9));
-		border-radius: 14px; 
-		box-shadow: 0 0 10px #fff,0 0 10px #fff;
-	}
-	#page2 .flower li{
-		width: 140px; height: 140px;
-		float: left;
-		margin:10px;
-		overflow: hidden;
-	}
-	#page2 .flower img,a{
-		width: 140px; height: 140px;
-		border-radius: 14px; 
-	}
-	#page2 .flower a{
-		position: relative;
-		display: block;
-		
-	}
-	#page2 .flower a div{
-		width: 140px; height: 140px;
-		border-radius: 16px; 
-		position: absolute;
-		top: 0;left:-150px;
-		background: url(imgflower/bgflower.png) no-repeat center center;
-		background-size: 100% 100%;
-		text-align: center;
-		line-height: 140px;
-		font-weight: bold;
-		font-size: 24px;
-		letter-spacing: 4px;
-		word-spacing: 2px;
-		-webkit-text-stroke:2px #000;
-		
-		
-	}
-	/*自我介绍page3*/
-	#page3{
-		background: url(img/bg_page3.png) no-repeat center center;
-		background-size: 100% 100%;		
-		position: relative;
-	} 
-	#page3 .box_message{
-		margin-left: -250px;
-		margin-top:-150px;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 500px;
-		height: 300px;
-		overflow: hidden;
-	}
-	#page3 #myself{
-		width: 100%;
-		
-        position: absolute;
-        bottom:0px;
-        left: 0px;
-        text-align: center;
-    }
-	#page3 #myself li{
-		width:64px;
-		height: 64px;
-		margin:12px;
-		display: inline-block;
-		font-size: 14px;
-		color: #fff;
-	}
-	#page3 #myself li img{
-		width:100%;
-		height: 100%;
-		border-radius: 30px;
-	}
-	#mymessage{
-		position: absolute;
-		left: 0;top: 0;
-		width: 400px;
-		height: 300px;
-	} 
-	#mymessage li{
-		width: 400px;
-		height: 300px;
-		color: #fff;
-	}
-	/*css展示page4*/
-	#page4{
-		background: url(img/bg_page4.png) no-repeat center center;
-		background-size: 100% 100%;
-		padding-top: 80px;
-	}
+	}	
 </style>
-
+<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
 <script type="text/javascript" src="js/domready.js"></script>
 <script type="text/javascript">
 	domready(function(){
@@ -286,8 +185,8 @@
 			<div class="box_message">
 				<ol class="mymessage" id="mymessage">
 					<li class="aboutme">
-						<h4>姓名：赵玉美</h4>
-						<span>民族：汉族</span><br />
+						<span>姓名：赵玉美</span><br/>
+						<span>民族：汉族</span><br/>
 						<span>居住地：北京昌平</span><br />
 						<span>政治面貌：团员</span><br />
 						<span>毕业学校：泰山学院</span><br />
@@ -302,14 +201,89 @@
 						<span>联系电话：18753855330</span><br />
 						<span>电子邮箱：zym5330@126.com</span>
 					</li>
-					<li class="education">教育经历</li>
-					<li class="evaluate">个人评价</li>
+					<li class="education">
+						<span>
+							2012.08 – 2016.06  泰山学院  应用心理学专业  本科
+						</span><br/>
+						<span>
+							2016.08—2016.12  北京系统学习Web
+						</span>
+					</li>
+					<li class="evaluate">
+						<p>
+							web前端行业是一个富有创造的行业，知其法、创其新，是行业发展的动力。所以从事web前端这个行业需要学习好基础，需要不断的学习，在工作、生活中学习，更好的完善自己。看见代码在屏幕上一个一个出现，最后转化成成果，更是对自己的激励。
+						</p>
+						<p>
+							三人行，必有我师焉！真诚待人，虚心学习，认真对待工作，通过大家的协调配合、共同努力，完成共同的目标。
+						</p>
+						<p>
+							遇到问题能自我分析并解决，有良好的理解能力，善于使用网络资源。
+							喜欢学习新知识，喜欢户外漫步,喜欢集体爬山等。
+						</p>
+					</li>
 					<li class="experience">项目经验</li>
 				</ol>
 			</div>
 		</div>
-		//  作品展示  
-		<div id="page4">CSS展示</div>
+		<!-- //  作品展示   -->
+		<div id="page4">
+			<div id="box">
+		        <div id="pic">
+		            <div>
+		            	<a href="#">
+		            		<img src="img/html1.png"/>
+		            	</a>
+		            </div>
+		            <div>
+			            <a href="#">
+			            	<img src="img/html2.png"/>
+			            </a>
+		            </div>
+		            <div>
+			            <a href="#">
+			            	<img src="img/html3.png"/>
+			            </a>
+		            </div>
+		            <div>
+		            	<a href="#">
+		            		<img src="img/html4.png"/>
+		            	</a>
+		            </div>
+		            <div>
+			            <a href="#">
+			            	<img src="img/html5.png"/>
+			            </a>
+		            </div>
+		            <div>
+			            <a href="#">
+			            	<img src="img/html6.png"/>
+			            </a>
+		            </div>
+		            <div>
+			            <a href="#">
+			            	<img src="img/html7.png"/>
+			            </a>
+		            </div>
+		            <div>
+			            <a href="#">
+			            	<img src="img/html8.png"/>
+			            </a>
+		            </div>
+		        </div>
+		        <i id="prev"></i>
+		        <div id="but">
+		            <input class="active" type="button" value="1" />
+		            <input type="button" value="2" />
+		            <input type="button" value="3" />
+		            <input type="button" value="4" />
+		            <input type="button" value="5" />
+		            <input type="button" value="6" />
+		            <input type="button" value="7" />
+		            <input type="button" value="8" />
+		        </div>
+		        <i id="next"></i>   
+		    </div>
+		</div>
 	</section>
 </body>
 
@@ -319,6 +293,7 @@
 <script type="text/javascript" src="js/short.js"></script>
 <script type="text/javascript" src="js/header.js"></script>
 <script type="text/javascript" src="js/page2.js"></script>
+<script type="text/javascript" src="js/page4.js"></script>
 <!-- // 	(function(win,doc){
 // 		win.addEventListener('resize',change,false);
 // 		change();

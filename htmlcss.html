@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+<link rel="stylesheet" type="text/css" href="css/base.css"/>
+<style>
+        #box {
+            width: 506px;
+            height: 318px;
+            margin: 100px auto 0;
+            position: relative;
+        }
+        #pic{
+            width: 504px;
+            height: 316px;
+            overflow: hidden;
+        }
+        #pic div {
+            width: 500px;
+            height: 312px;          
+            line-height: 500px;
+            border: 2px solid #e3e3e3;
+        }
+        #pic div img{
+            width: 500px;
+            height: 312px;  
+        }
+        #box input.active {
+            background: red;
+        }
+        #box input , i{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        #but input{
+            text-align: center;
+            color: #fff;
+        }
+        #but{
+            position: absolute;
+            left: 0;bottom: -24px;
+            width: 500px;
+            height: 22px;
+            text-align: center;
+        }
+        #prev {
+            width: 36px;
+            height: 36px;
+            display: inline-block;
+            background: url(img/left.png) no-repeat center center;
+            background-size: 100% 100%;
+            position: absolute; left: 18px; top: 148px;
+            opacity: 0.6;
+        }
+        #prev:hover{
+            opacity: 1;
+            box-shadow: 0 0 6px #000,0 0 6px #000;
+        }
+        #next {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            background: url(img/right.png) no-repeat center center;
+            background-size: 100% 100%;
+            position: absolute; right: 18px; top: 148px;
+            opacity: 0.6;
+        }
+        #next:hover{
+            opacity: 1;
+            box-shadow: 0 0 6px #000,0 0 6px #000;
+        }
+        
+</style>
+<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="js/move.js"></script>
+<script>
+    $.fn.tab=function(obj1,obj2,n){
+        obj1.removeClass().eq(n).addClass('active');
+        obj2.hide().eq(n).slideDown(); 
+        //move(obj2.,{top:-this.index*aLi2[0].offsetHeight});
+    }
+    $(function(){
+        var oBox = $('#box');
+        var oPic = $('#pic');
+        var oPrev = $('#prev');
+        var oNext = $('#next');
+        var aBtn = $('#but').find('input');
+        var aDiv = $('#pic').find('div');
+        var iNow = 0;
+        aBtn.each(function(index){
+            $(this).click(function(){
+                iNow=index; 
+                $(document).tab(aBtn,aDiv,iNow);
+                // console.log(iNow);
+                // console.log(index);
+            })
+        })
+        oNext.click(function(){
+            iNow++;
+            if (iNow==aBtn.length) {
+                iNow=0;
+            }
+            $(document).tab(aBtn,aDiv,iNow);
+            // console.log(iNow);
+        })
+
+        oPrev.click(function(){
+            iNow--;
+            if(iNow==-1){
+                iNow=2;
+            }
+            $(document).tab(aBtn,aDiv,iNow);
+            // console.log(iNow);
+        })
+
+        var timer = setInterval(function(){
+            iNow++;
+            if (iNow==aBtn.length) {
+                iNow=0;
+            }
+            $(document).tab(aBtn,aDiv,iNow);
+        },1500)
+        oBox.mouseover(function(){
+            clearInterval(timer);
+        });
+        oBox.mouseout(function(){
+            timer=setInterval(function(){
+                iNow++;
+                if (iNow==aBtn.length) {
+                    iNow=0;
+                }
+                // console.log(iNow+'wo');
+                $(document).tab(aBtn,aDiv,iNow);
+                  
+            },1500)
+        })
+    })
+</script>
+</head>
+<body>
+    <div id="box">
+        <div id="pic">
+            <div><img src="img/html1.png"/></div>
+            <div><img src="img/html2.png"/></div>
+            <div><img src="img/html3.png"/></div>
+            <div><img src="img/html4.png"/></div>
+            <div><img src="img/html5.png"/></div>
+            <div><img src="img/html6.png"/></div>
+            <div><img src="img/html7.png"/></div>
+            <div><img src="img/html8.png"/></div>
+        </div>
+        <i id="prev"></i>
+        <div id="but">
+            <input class="active" type="button" value="1" />
+            <input type="button" value="2" />
+            <input type="button" value="3" />
+            <input type="button" value="4" />
+            <input type="button" value="5" />
+            <input type="button" value="6" />
+            <input type="button" value="7" />
+            <input type="button" value="8" />
+        </div>
+        <i id="next"></i>   
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

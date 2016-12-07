@@ -1,0 +1,77 @@
+/*css展示page4*/
+#page4{
+    background: url(../img/bg_page4.png) no-repeat center center;
+    background-size: 100% 100%;
+    padding-top: 80px;
+}
+#box {
+    width: 506px;
+    height: 318px;
+    margin: 100px auto 0;
+    position: relative;
+}
+#pic{
+    width: 504px;
+    height: 316px;
+    overflow: hidden;
+}
+#pic div {
+    width: 500px;
+    height: 312px;          
+    line-height: 500px;
+    border: 2px solid #e3e3e3;
+}
+#pic div a{
+    display: block;
+    width: 500px;
+    height: 312px;  
+}
+#pic div img{
+    width: 500px;
+    height: 312px;  
+}
+#box input.active {
+    background: red;
+}
+#box input,i{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+#but input{
+    text-align: center;
+    color: #fff;
+}
+#but{
+    position: absolute;
+    left: 0;bottom: -24px;
+    width: 500px;
+    height: 22px;
+    text-align: center;
+}
+#page4 #prev {
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    background: url(../img/left.png) no-repeat center center;
+    background-size: 100% 100%;
+    position: absolute; left: 18px; top: 148px;
+    opacity: 0.6;
+}
+#page4 #prev:hover{
+    opacity: 1;
+    box-shadow: 0 0 6px #000,0 0 6px #000;
+}
+#page4 #next {
+    width: 40px;
+    height: 40px;
+    display:block;
+    background: url(../img/right.png) no-repeat center center;
+    background-size: 100% 100%;
+    position: absolute; right: 18px; top: 148px;
+    opacity: 0.6;
+}
+#page4 #next:hover{
+    opacity: 1;
+    box-shadow: 0 0 6px #000,0 0 6px #000;
+}

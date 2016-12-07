@@ -1,0 +1,50 @@
+	/*作品展示page2*/
+	#page2{
+		background: url(../img/bg_page2.png) no-repeat center center;
+		background-size: 100% 100%;
+		
+		position: relative;
+	}
+	#page2 .flower{
+		width: 640px; height: 480px;
+		padding: 10px;
+		position: absolute;
+		top: 50%;left: 50%;
+		margin-top: -220px;
+		margin-left: -320px;
+		background: -webkit-radial-gradient(rgba(0,255,200,1),rgba(0,180,255,0.9));
+		border-radius: 14px; 
+		box-shadow: 0 0 10px #fff,0 0 10px #fff;
+	}
+	#page2 .flower li{
+		width: 140px; height: 140px;
+		float: left;
+		margin:10px;
+		overflow: hidden;
+	}
+	#page2 .flower img,a{
+		width: 140px; height: 140px;
+		border-radius: 14px; 
+	}
+	#page2 .flower a{
+		position: relative;
+		display: block;
+		
+	}
+	#page2 .flower a div{
+		width: 140px; height: 140px;
+		border-radius: 16px; 
+		position: absolute;
+		top: 0;left:-150px;
+		background: url(../imgflower/bgflower.png) no-repeat center center;
+		background-size: 100% 100%;
+		text-align: center;
+		line-height: 140px;
+		font-weight: bold;
+		font-size: 24px;
+		letter-spacing: 4px;
+		word-spacing: 2px;
+		-webkit-text-stroke:2px #000;
+		
+		
+	}

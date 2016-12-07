@@ -1,0 +1,55 @@
+/*自我介绍page3*/
+	#page3{
+		background: url(../img/bg_page3.png) no-repeat center center;
+		background-size: 100% 100%;		
+		position: relative;
+	} 
+	#page3 .box_message{
+		margin-left: -250px;
+		margin-top:-150px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 500px;
+		height: 300px;
+		overflow: hidden;
+	}
+	#page3 #myself{
+		width: 100%;
+		
+        position: absolute;
+        bottom:0px;
+        left: 0px;
+        text-align: center;
+    }
+	#page3 #myself li{
+		width:64px;
+		height: 64px;
+		margin:12px;
+		display: inline-block;
+		font-size: 14px;
+		color: #fff;
+	}
+	#page3 #myself li img{
+		width:100%;
+		height: 100%;
+		border-radius: 30px;
+	}
+	#mymessage{
+		position: absolute;
+		left: 0;top: 0;
+		width: 400px;
+		height: 300px;
+	} 
+	#mymessage li{
+		width: 400px;
+		height: 300px;
+		color: #fff;
+	}
+	#mymessage li span,.evaluate p{
+		font-size: 18px;
+		color: #00f;
+		text-shadow: 0 0 2px #fff,0 0 2px #fff,0 0 2px #fff;
+		font-weight: bold;
+		text-indent: 2em;
+	}
