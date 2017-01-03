@@ -3,7 +3,7 @@ $.fn.tab=function(obj1,obj2,n){
     obj2.hide().eq(n).slideDown(); 
     //move(obj2.,{top:-this.index*aLi2[0].offsetHeight});
 }
-var oBox = $('#box');
+var oBox = $('#page4_box');
 var oPic = $('#pic');
 var oPrev = $('#prev');
 var oNext = $('#next');
@@ -11,14 +11,14 @@ var aBtn = $('#but').find('input');
 var aDiv = $('#pic').find('div');
 var iNow = 0;
 aBtn.each(function(index){
-    $(this).click(function(){
+    $(this).on('click',function(){
         iNow=index; 
         $(document).tab(aBtn,aDiv,iNow);
         // console.log(iNow);
         // console.log(index);
     })
 })
-oNext.click(function(){
+oNext.on('click',function(){
     iNow++;
     if (iNow==aBtn.length) {
         iNow=0;
@@ -27,7 +27,7 @@ oNext.click(function(){
     // console.log(iNow);
 })
 
-oPrev.click(function(){
+oPrev.on('click',function(){
     iNow--;
     if(iNow==-1){
         iNow=2;
@@ -43,10 +43,10 @@ var timer = setInterval(function(){
     }
     $(document).tab(aBtn,aDiv,iNow);
 },1500)
-oBox.mouseover(function(){
+oBox.on('mouseover',function(){
     clearInterval(timer);
 });
-oBox.mouseout(function(){
+oBox.on('mouseout',function(){
     timer=setInterval(function(){
         iNow++;
         if (iNow==aBtn.length) {

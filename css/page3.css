@@ -1,6 +1,6 @@
 /*自我介绍page3*/
 	#page3{
-		background: url(../img/bg_page3.png) no-repeat center center;
+		background: url(../img/bg_page2.jpg) no-repeat center center;
 		background-size: 100% 100%;		
 		position: relative;
 	} 
@@ -28,7 +28,8 @@
 		margin:12px;
 		display: inline-block;
 		font-size: 14px;
-		color: #fff;
+		color: #000;
+		font-weight: bold;
 	}
 	#page3 #myself li img{
 		width:100%;
@@ -38,18 +39,75 @@
 	#mymessage{
 		position: absolute;
 		left: 0;top: 0;
-		width: 400px;
+		width: 500px;
 		height: 300px;
 	} 
 	#mymessage li{
-		width: 400px;
+		width: 500px;
 		height: 300px;
 		color: #fff;
+		background:#00a5e3;
+	}
+	#mymessage .evaluate{
+		width: 480px;
+		padding: 0 10px;
 	}
 	#mymessage li span,.evaluate p{
 		font-size: 18px;
-		color: #00f;
+		line-height: 1.5;
+		color: #000;
 		text-shadow: 0 0 2px #fff,0 0 2px #fff,0 0 2px #fff;
 		font-weight: bold;
 		text-indent: 2em;
 	}
+	#mymessage .experience p,.experience h4{
+		font-size: 18px;
+		color: #f00;
+		text-shadow: 0 0 2px #fff,0 0 2px #fff,0 0 2px #fff;
+		font-weight: bold;
+		text-indent: 2em;
+		
+	}
+	#mymessage .experience h4{
+		font-size: 20px;
+		color: #000;
+	}
+	#mymessage #box{
+        width: 500px;
+        height: 300px;
+        margin: 0;
+        background: #cccccc;
+        position: relative;
+    }
+    #mymessage #right{
+        width: 30px;
+        height: 100%;
+        background:#e18900;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    #mymessage #left{
+        width: 470px;
+        height: 300px;
+        background:#e1c24f;
+        position: relative;
+        overflow: hidden;
+    }
+    #mymessage #content{
+        width: 450px;
+        padding: 0 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #000;
+    }
+    #mymessage #item{
+        width: 30px;
+        height: 50px;
+        background:#8a3e05;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 10px;
+    }

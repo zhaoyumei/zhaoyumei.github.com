@@ -3,7 +3,7 @@ function getStyle(obj,name){
 }
 function move(obj,json,options){
 	options=options || {};
-	options.time=options.time || 700;
+	options.time=options.time || 800;
 	options.type=options.type || 'ease-out';
 	
 	clearInterval(obj.timer);

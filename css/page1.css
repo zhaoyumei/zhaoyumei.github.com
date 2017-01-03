@@ -1,6 +1,6 @@
 /*首页page1*/
 section #page1{
-	background: url(../img/bg_page1.png) no-repeat center center;
+	background: url(../img/bg_page1.jpg) no-repeat center center;
 	background-size: 100% 100%;
 	position: relative;
 }
@@ -9,7 +9,7 @@ section #page1{
 	position: absolute;
 	left: 35%;top: 20%;		
 }
-#page1 .hire p{
+#page1 .hire p,a{
 	text-align: center;
 	color: #fff;
 }
@@ -19,12 +19,15 @@ section #page1{
 	padding:96px 0 64px;
 }
 #page1 .hire_p2{
+	display: block;
 	font-size: 40px;
 	font-weight: bold;
 	background: #fb6470;
 	width: 240px;
 	margin: 0 auto;
 	border-radius: 20px;
+	height: 50px;
+	line-height: 50px;
 }
 @media screen and (max-width:960px){
 	#page1 .hire_p1{
@@ -36,10 +39,11 @@ section #page1{
 		font-size: 30px;
 		font-weight: bold;
 		background: #fb6470;
-		width: 220px;
+		width: 220px;height: 40px;
 		margin: 0 auto;
 		border-radius: 20px;
 	}
+
 }
 @media screen and (max-height:560px){
 	#page1 .hire_p1{

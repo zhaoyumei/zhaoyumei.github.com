@@ -31,39 +31,7 @@
 <script type="text/javascript">
 	domready(function(){
 		header();
-		page2Follow();
-
-       		var oPage3 = document.getElementById('page3');
-            var oMyself = document.getElementById('myself');
-            var aLi = oMyself.getElementsByTagName('li');
-            var oMymessage = document.getElementById('mymessage');
-            var aLi2 = oMymessage.children;
-     		
-            oPage3.onmousemove=function(ev){
-            	
-                var oEvent = ev ||event;
-                for(var i=0;i<aLi.length;i++){
-                	aLi[i].index = i;
-                    var a = aLi[i].offsetWidth/2+aLi[i].offsetLeft-oEvent.clientX;
-                    var b = aLi[i].offsetHeight/2+oPage3.offsetHeight-100-oEvent.clientY;
-                    var c = Math.sqrt(a*a+b*b);
-                    var scale = 1-c/500;
-                    scale<0.5 && (scale=0.5);
-                    aLi[i].style.width=scale*128+'px';
-                    aLi[i].style.height=scale*128+'px';
-                    aLi[i].onclick = function(){
-                    	for (var i = 0; i < aLi.length; i++) {
-                    		//aLi2[i].style.display = 'none';
-                    	}
-                    	//aLi2[this.index].style.display = 'block';
-                    	move(oMymessage,{top:-this.index*aLi2[0].offsetHeight});
-                    };
-                }
-
-            };
-        
-		
-
+		page2Follow();	
 	});
 </script>
 </head>
@@ -94,7 +62,7 @@
 		<div id="page1">
 			<div class="hire">
 				<p class="hire_p1">Resume</p>
-				<p class="hire_p2">Hire Me!</p>
+				<a href="#page3" class="hire_p2">Hire Me!</a>
 			</div>
 		</div>
 		<div id="page2">
@@ -102,73 +70,109 @@
 				<li>		
 					<a href="page2/3Ddesign.html" target="_blank">
 						<img src="imgflower/hua0.png" alt="">
-						<div>Click</div>	
+						<div>
+							<p>Click me</p>
+							<p>3D 效果</p>
+						</div>	
 					</a>
 				</li>
 				<li>	
 					<a href="page2/photoWall.html" target="_blank">
 						<img src="imgflower/hua1.png" alt="">
-						<div>Click</div>
+						<div>
+							<p>Click me</p>
+							<p>照片墙</p>
+						</div>
 					</a>
 				</li>
 				<li>
 					<a href="page2/3Ddice.html" target="_blank">
 						<img src="imgflower/hua2.png" alt="">
-						<div>Click</div>
+						<div>
+							<p>Click me</p>
+							<p>3D 骰子</p>
+						</div>
 					</a>
 				</li>
 				<li>
 					<a href="page2/3Dphoto.html" target="_blank">
 						<img src="imgflower/hua3.png" alt="">
-						<div>Click</div>
+						<div>
+							<p>Click me</p>
+							<p>3D 图片环</p>
+						</div>
 					</a>	
 				</li>
 				<li>
 					<a href="" target="_blank">
 						<img src="imgflower/hua4.png" alt="">
-						<div>Click</div>
+						<div>
+							<p>Click me</p>
+							<p>3D 效果</p>
+						</div>
 					</a>
 				</li>
 				<li>
 					<a href="" target="_blank">
 						<img src="imgflower/hua5.png" alt="">
-						<div>Click</div>
+						<div>
+							<p>Click me</p>
+							<p>3D 效果</p>
+						</div>
 					</a>					
 				</li>
 				<li>
 					<a href="" target="_blank">
 						<img src="imgflower/hua6.png" alt="">
-						<div>Click</div>
+						<div>
+							<p>Click me</p>
+							<p>3D 效果</p>
+						</div>
 					</a>
 				</li>
 				<li>
 					<a href="" target="_blank">
 						<img src="imgflower/hua7.png" alt="">
-						<div>Click</div>
+						<div>
+							<p>Click me</p>
+							<p>3D 效果</p>
+						</div>
 					</a>
 				</li>
 				<li>
 					<a href="" target="_blank">
 						<img src="imgflower/hua8.png" alt="">
-						<div>Click</div>
+						<div>
+							<p>Click me</p>
+							<p>3D 效果</p>
+						</div>
 					</a>
 				</li>
 				<li>
 					<a href="" target="_blank">
 						<img src="imgflower/hua9.png" alt="">
-						<div>Click</div>
+						<div>
+							<p>Click me</p>
+							<p>3D 效果</p>
+						</div>
 					</a>
 				</li>
 				<li>
 					<a href="" target="_blank">
 						<img src="imgflower/hua10.png" alt="">
-						<div>Click</div>
+						<div>
+							<p>Click me</p>
+							<p>3D 效果</p>
+						</div>
 					</a>	
 				</li>
 				<li>
 					<a href="" target="_blank">
 						<img src="imgflower/hua11.png" alt="">
-						<div>Click</div>
+						<div>
+							<p>Click me</p>
+							<p>3D 效果</p>
+						</div>
 					</a>	
 				</li>
 			</ul>
@@ -185,31 +189,32 @@
 			<div class="box_message">
 				<ol class="mymessage" id="mymessage">
 					<li class="aboutme">
-						<span>姓名：赵玉美</span><br/>
-						<span>民族：汉族</span><br/>
-						<span>居住地：北京昌平</span><br />
-						<span>政治面貌：团员</span><br />
-						<span>毕业学校：泰山学院</span><br />
-						<span>学历：本科</span><br />
-						<span>专业：应用心理学</span><br />
-						<span>联系电话：18753855330</span><br />
-						<span>电子邮箱：zym5330@126.com</span>
+						<br/>
+						<span>&nbsp&nbsp姓名：赵玉美</span><br/>
+						<span>&nbsp&nbsp民族：汉族</span><br/>
+						<span>&nbsp&nbsp居住地：北京昌平</span><br />
+						<span>&nbsp&nbsp政治面貌：团员</span><br />
+						<span>&nbsp&nbsp毕业学校：泰山学院</span><br />
+						<span>&nbsp&nbsp学历：本科</span><br />
+						<span>&nbsp&nbsp专业：应用心理学</span><br />
+						<span>&nbsp&nbsp联系电话：18753855330</span><br />
+						<span>&nbsp&nbsp电子邮箱：zym5330@126.com</span>
 					</li>
 					<li class="myskill">
-						<span>学历：本科</span><br />
-						<span>专业：应用心理学</span><br />
-						<span>联系电话：18753855330</span><br />
-						<span>电子邮箱：zym5330@126.com</span>
+						<br/>
+						<span>&nbsp&nbsp学历：本科</span><br />
+						<span>&nbsp&nbsp专业：应用心理学</span><br />
+						<span>&nbsp&nbsp联系电话：18753855330</span><br />
+						<span>&nbsp&nbsp电子邮箱：zym5330@126.com</span>
 					</li>
 					<li class="education">
+						<br/>
 						<span>
-							2012.08 – 2016.06  泰山学院  应用心理学专业  本科
-						</span><br/>
-						<span>
-							2016.08—2016.12  北京系统学习Web
+							&nbsp&nbsp2012.08 – 2016.06  泰山学院  应用心理学专业  本科
 						</span>
 					</li>
 					<li class="evaluate">
+						<br/>
 						<p>
 							web前端行业是一个富有创造的行业，知其法、创其新，是行业发展的动力。所以从事web前端这个行业需要学习好基础，需要不断的学习，在工作、生活中学习，更好的完善自己。看见代码在屏幕上一个一个出现，最后转化成成果，更是对自己的激励。
 						</p>
@@ -221,51 +226,86 @@
 							喜欢学习新知识，喜欢户外漫步,喜欢集体爬山等。
 						</p>
 					</li>
-					<li class="experience">项目经验</li>
+					<li class="experience">
+						<div id="box">
+					        <div id="left">
+					            <div id="content">
+					            	<br/>
+					            	<h4>个人网站:</h4>
+									<p>
+										运用css+div布局，使用javascript和jQuery实现页面上选项卡、运动等动态效果，而且在细节上运用html5实现动态效果，如旋转翻转效果，3D爆炸效果，让许多小块旋转着由中心向四周移动且逐渐消失，以及图片环效果，实现旋转和拖拽的完美搭配。使用sublime编辑器，经过不断调试修改完成该项目，并上传至GitHub服务器。
+									</p>
+									<p>
+										Javascript实现选项卡、图片运动等动态效果。弹性运动实现导航动态效果。使用jQuery实现 静态页展示的轮播图效果。使用html5和css3.0实现翻转、运动、燃烧火焰等各种效果。使用模块化实现简单捕鱼小游戏效果。
+
+									</p>
+									<br/>
+									<h4>
+										新势力生态农业科技有限公司网站页面开发:
+									</h4>
+									<p>
+										一个企业网站，运用div+css布局,使用jQuery库，引用SuperSlide.js实现轮播图动态以及调用效果
+									</p>
+									<br/>
+									<h4>
+										肥城孙家桃木坊:
+									</h4>
+									<p>
+										运用div+css布局,基于jQuery.js，实现选项卡效果。引用SuperSlide.js实现轮播图动态效果、文字滚动效果、图片滚动效果。
+									</p>
+					            	<br/>
+
+					            </div>
+					        </div>
+					        <div id="right">
+					            <div id="item"></div>
+					        </div>
+					    </div>
+					</li>
 				</ol>
 			</div>
 		</div>
 		<!-- //  作品展示   -->
 		<div id="page4">
-			<div id="box">
+			<div id="page4_box">
 		        <div id="pic">
 		            <div>
-		            	<a href="#">
+		            	<a href="Beauty/Beauty.html" target="_blank">
 		            		<img src="img/html1.png"/>
 		            	</a>
 		            </div>
 		            <div>
-			            <a href="#">
+			            <a href="MI/MI.html" target="_blank">
 			            	<img src="img/html2.png"/>
 			            </a>
 		            </div>
 		            <div>
-			            <a href="#">
+			            <a href="JD/JD.html" target="_blank">
 			            	<img src="img/html3.png"/>
 			            </a>
 		            </div>
 		            <div>
-		            	<a href="#">
+		            	<a href="game/index.html" target="_blank">
 		            		<img src="img/html4.png"/>
 		            	</a>
 		            </div>
 		            <div>
-			            <a href="#">
+			            <a href="school/fenxaing.html" target="_blank">
 			            	<img src="img/html5.png"/>
 			            </a>
 		            </div>
 		            <div>
-			            <a href="#">
+			            <a href="oldCar/oldCar.html" target="_blank">
 			            	<img src="img/html6.png"/>
 			            </a>
 		            </div>
 		            <div>
-			            <a href="#">
+			            <a href="HEXOGON/HEXOGONE.html" target="_blank">
 			            	<img src="img/html7.png"/>
 			            </a>
 		            </div>
 		            <div>
-			            <a href="#">
+			            <a href="JUAPP/juhuasuan.html" target="_blank">
 			            	<img src="img/html8.png"/>
 			            </a>
 		            </div>
@@ -294,6 +334,76 @@
 <script type="text/javascript" src="js/header.js"></script>
 <script type="text/javascript" src="js/page2.js"></script>
 <script type="text/javascript" src="js/page4.js"></script>
+<script src="js/addwheel.js"></script>
+<script> 
+	var oPage3 = document.getElementById('page3');
+    var oMyself = document.getElementById('myself');
+    var aLi = oMyself.getElementsByTagName('li');
+    var oMymessage = document.getElementById('mymessage');
+    var aLi2 = oMymessage.children;		
+    oPage3.onmousemove=function(ev){       	
+        var oEvent = ev ||event;
+        for(var i=0;i<aLi.length;i++){
+        	aLi[i].index = i;
+            var a = aLi[i].offsetWidth/2+aLi[i].offsetLeft-oEvent.clientX;
+            var b = aLi[i].offsetHeight/2+oPage3.offsetHeight-100-oEvent.clientY;
+            var c = Math.sqrt(a*a+b*b);
+            var scale = 1-c/500;
+            scale<0.5 && (scale=0.5);
+            aLi[i].style.width=scale*128+'px';
+            aLi[i].style.height=scale*128+'px';
+            aLi[i].onclick = function(){
+            	for (var i = 0; i < aLi.length; i++) {
+            		//aLi2[i].style.display = 'none';
+            	}
+            	//aLi2[this.index].style.display = 'block';
+            	move(oMymessage,{top:-this.index*aLi2[0].offsetHeight});
+            };
+        }
+    };  
+    var oBox = document.getElementById('box');
+    var oItem = document.getElementById('item');
+    var oContent = document.getElementById('content');
+    var oLeft = document.getElementById('left');
+    var oRight = document.getElementById('right');
+
+    oItem.onmousedown=function(ev){
+        var oEvent = ev || event;
+        var disY = oEvent.clientY-oItem.offsetTop;
+        document.onmousemove=function(ev) {
+            var oEvent = ev || event;
+            var t = oEvent.clientY - disY;
+            setTop(t);
+        }
+        document.onmouseup=function(){
+            document.onmousemove=null;
+            document.onmouseup=null;
+        };
+        return false;
+    };
+    function setTop(t){
+        if(t<0){
+            t=0;
+        }
+        if(t>oRight.offsetHeight-oItem.offsetHeight){
+            t=oRight.offsetHeight-oItem.offsetHeight;
+        }
+        var scale = t/(oRight.offsetHeight-oItem.offsetHeight);
+        oContent.style.top=-scale*(oContent.offsetHeight-oLeft.offsetHeight)+'px';
+        oItem.style.top=t+'px';
+    }
+    addWheel(oBox,function(bDown){
+        var t = oItem.offsetTop;
+        if(bDown){
+            //往下
+            t+=10;
+        }else{
+            t-=10;
+        }
+        setTop(t);
+    });  
+</script>
+
 <!-- // 	(function(win,doc){
 // 		win.addEventListener('resize',change,false);
 // 		change();

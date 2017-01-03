@@ -1,61 +1,76 @@
-/*css展示page4*/
+/*css展示page4第四个页面*/
 #page4{
-    background: url(../img/bg_page4.png) no-repeat center center;
+    background: url(../img/bg_page2.jpg) no-repeat center center;
     background-size: 100% 100%;
-    padding-top: 80px;
-}
-#box {
-    width: 506px;
-    height: 318px;
-    margin: 100px auto 0;
+    padding-top: 0px;
     position: relative;
 }
+#page4_box {
+    width: 690px;
+    height: 420px;
+    position: absolute;
+    top: 50%;left: 50%;
+    margin-top:-200px;
+    margin-left:-345px;    
+}
 #pic{
-    width: 504px;
-    height: 316px;
+    width: 564px;
+    height: 366px;
     overflow: hidden;
+    position: absolute;
+    top: 50%;left: 50%;
+    margin-top:-188px;
+    margin-left:-282px; 
 }
 #pic div {
-    width: 500px;
-    height: 312px;          
-    line-height: 500px;
+    width: 560px;
+    height: 350px;          
+    line-height: 350px;
     border: 2px solid #e3e3e3;
 }
 #pic div a{
     display: block;
-    width: 500px;
-    height: 312px;  
+    width: 560px;
+    height: 350px;  
 }
 #pic div img{
-    width: 500px;
-    height: 312px;  
+    width: 560px;
+    height: 350px;  
 }
-#box input.active {
-    background: red;
+#page4_box input.active {
+    background: #038cfa;
 }
-#box input,i{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
+#page4_box input,i{
+    width: 40px;
+    height: 30px;
+    border-radius: 30%;
 }
+/* 
+#but 包按钮的div盒子
+input 按钮
+#page4_box选项卡盒子
+*/
 #but input{
     text-align: center;
     color: #fff;
+    font-size: 20px;
+    margin:0 4px;
+    background:#f69; 
 }
 #but{
     position: absolute;
-    left: 0;bottom: -24px;
-    width: 500px;
-    height: 22px;
+    left: 0px;bottom: -8px;
+    width: 690px;
+    height: 32px;
     text-align: center;
 }
 #page4 #prev {
-    width: 36px;
-    height: 36px;
+    width: 54px;
+    height: 54px;
     display: inline-block;
     background: url(../img/left.png) no-repeat center center;
     background-size: 100% 100%;
-    position: absolute; left: 18px; top: 148px;
+    position: absolute; left: 0px; top: 170px;
     opacity: 0.6;
 }
 #page4 #prev:hover{
@@ -63,12 +78,12 @@
     box-shadow: 0 0 6px #000,0 0 6px #000;
 }
 #page4 #next {
-    width: 40px;
-    height: 40px;
+    width: 54px;
+    height: 54px;
     display:block;
     background: url(../img/right.png) no-repeat center center;
     background-size: 100% 100%;
-    position: absolute; right: 18px; top: 148px;
+    position: absolute; right: 0px; top: 170px;
     opacity: 0.6;
 }
 #page4 #next:hover{
