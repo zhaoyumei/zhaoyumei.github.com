@@ -133,21 +133,19 @@ function header(){
 	oT2.onfocus = function(){
 		oT.value = '';
 		iNow = -1;
-		oUl.style.display = 'block';
+		getData1(oT2.value,function(s){
+			show(oUl,s);
+		})
 	}
-	oT2.onblur = function(){
-		
-		oUl.style.display = 'none';
-	}
+
 	oT.onfocus = function(){
 		oT2.value = '';
 		iNow = -1;
-		oUl.style.display = 'block';
+		getData2(oT.value,function(s){
+			show(oUl,s);
+		})
 	}
-	oT.onblur = function(){
-		
-		oUl.style.display = 'none';
-	}
+
 	var aLi = oUl.children;
 
 	var iNow = -1;
