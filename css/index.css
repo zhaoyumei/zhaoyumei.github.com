@@ -3,7 +3,7 @@
 /*头部logo 导航*/
 header{
 	width: 100%; height: 80px;
-	background:rgba(0,0,0,.4);
+	background:rgba(0,0,0,.1);
 	position: fixed; top: 0;
 	z-index: 1;
 	min-width: 960px;
@@ -59,14 +59,15 @@ header .resume_p2{
 header #nav{
 	width: 470px;height: 80px;
 	margin-right: 80px;
-	background: url(../img/navBg.png) no-repeat center center;
-	background-size:100% 100%;
+	// background: url(../img/navBg1.png) no-repeat center center;
+	// background-size:100% 100%;
 	position: relative;
 	padding: 0 4px 0 18px;
 }
 header #nav .hover{
 	position: absolute;
-	width: 110px;height: 76px;
+	width: 110px;height: 70px;
+	margin: 6px 0 0 0;
 	background: url(../img/navA_hover.png) no-repeat center center;
 	background-size:100% 100%;
 	z-index: -1;	
@@ -76,12 +77,12 @@ header #nav span{
 	float: left;
 	background: #fff;
 	height: 17px;width: 1px;
-	margin: 24px 4px 0;
+	margin: 31px 4px 0;
 	
 }
 header #nav a{
 	width: 110px;height: 80px;
-	line-height: 64px;
+	line-height: 76px;
 	text-align: center;
 	font-size: 16px;
 	color: #fff;
@@ -91,7 +92,7 @@ header #nav a{
 	text-shadow:1px 1px 1px #000;
 }
 header #nav a:hover {
-
+	font-size: 18px;
 }
 
 

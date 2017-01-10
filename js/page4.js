@@ -56,4 +56,4 @@ oBox.on('mouseout',function(){
         $(document).tab(aBtn,aDiv,iNow);
           
     },1500)
-})
+});

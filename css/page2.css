@@ -3,6 +3,7 @@
 		background: url(../img/bg_page2.jpg) no-repeat center center;
 		background-size: 100% 100%;	
 		position: relative;
+		overflow: hidden;
 	}
 	#page2 .flower{
 		width: 640px; height: 480px;
@@ -53,3 +54,24 @@
 	#page2 .flower a p:nth-of-type(2){
 		font-size: 22px;
 	}
+@media screen and (max-width:960px){
+	#page2 .flower{
+		width: 560px; height: 420px;
+		margin-top: -200px;
+		margin-left: -300px;
+	}
+	#page2 .flower li{
+		width: 120px; height: 120px;
+	}
+	#page2 .flower img,a{
+		width: 120px; height: 120px;
+	}
+	#page2 .flower a div{
+		width: 120px; height: 80px;
+		line-height: 26px;
+		padding-top: 30px;	
+	}
+	#page2 .flower a p{
+		width: 120px; height: 36px;	
+	}
+}
