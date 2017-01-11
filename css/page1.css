@@ -114,4 +114,22 @@ section #soso{
 #soso ul li.active{
 	background: #dbdcdd;
 }
-/**/
+/*雪花飘飘*/
+section #snow{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;top: 0;
+}
+section #snow div{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;top: 0;
+}
+section #snow div canvas{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;top: 0;
+}
